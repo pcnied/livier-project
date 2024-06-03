@@ -1,5 +1,12 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid, Box } from '@mui/material';
+import {
+	Card,
+	CardContent,
+	Typography,
+	Grid,
+	Box,
+	Button,
+} from '@mui/material';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import contrateLivier from '../../../public/assets/contrateLivier.jpg';
@@ -15,36 +22,47 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 	return (
 		<Card
 			sx={{
-				width: '400px',
-				height: '280px',
+				width: '380px',
+				height: '320px',
 				margin: 'auto',
 				marginBottom: '20px',
+				backgroundColor: '#f5f5f5', // Alterado para uma cor mais clara
+				borderRadius: '12px', // Adicionado para suavizar as bordas
+				boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Adicionado sombra
 				transition: 'transform 0.3s',
 				'&:hover': {
 					transform: 'scale(1.05)',
 				},
+				position: 'relative',
 			}}
 		>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
 					{name}
 				</Typography>
-				<Typography variant="body1" color="text.secondary">
+				<Typography variant="body1" color={'black'}>
 					<strong>O que está incluso:</strong>
 				</Typography>
 				{description.map((item, index) => (
-					<Typography
-						variant="body2"
-						color="text.secondary"
-						key={index}
-					>
+					<Typography fontSize={'14px'} color={'black'} key={index}>
 						- {item}
 					</Typography>
 				))}
 				<Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-					<Typography variant="h6" color="text.primary">
+					<Typography variant="h6" color={'black'}>
 						Preço: {price}
 					</Typography>
+				</Box>
+				<Box
+					sx={{ position: 'absolute', bottom: '10px', right: '10px' }}
+				>
+					<Button
+						variant="contained"
+						color="primary"
+						style={{ backgroundColor: '#001e32' }}
+					>
+						Adquirir
+					</Button>
 				</Box>
 			</CardContent>
 		</Card>
@@ -85,11 +103,31 @@ const PricingPlans: React.FC = () => {
 						borderRadius: '8px',
 					}}
 				>
-					Confira os principais planos da Livier para você e sua empresa
+					Confira os principais planos da Livier para você e sua
+					empresa
 				</Typography>
 			</Box>
-			<Grid container spacing={2} justifyContent="center" marginTop={2}>
-				<Grid item >
+			<Box marginTop={2}>
+				<Grid item xs={12} style={{ textAlign: 'center' }}>
+					<Typography
+						fontSize="24px"
+						variant="overline"
+						fontWeight={300}
+						color={'black'}
+					>
+						Planos acessíveis e que se encaixam perfeitamente no seu
+						orçamento
+					</Typography>
+				</Grid>
+			</Box>
+			<Grid
+				container
+				spacing={2}
+				justifyContent="center"
+				marginTop={2}
+				marginBottom={4}
+			>
+				<Grid item>
 					<PlanCard
 						name="Standard SM"
 						description={[

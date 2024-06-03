@@ -41,11 +41,11 @@ const CardCategories = () => {
 		<React.Fragment>
 			<Grid
 				container
-				sx={{ margin: '0', borderRadius: '20px' }}
+				sx={{ margin: '0' }}
 				flexDirection={'row'}
 				justifyContent={'space-around'}
 				alignItems={'center'}
-				paddingTop={2}
+				paddingTop={1}
 				paddingBottom={4}
 			>
 				{cardData.map((card) => (
@@ -73,7 +73,7 @@ const CardCategories = () => {
 							<Typography
 								variant="h5"
 								sx={{
-									fontSize: '32px',
+									fontSize: '20px',
 									position: 'absolute',
 									top: '50%',
 									left: '50%',
