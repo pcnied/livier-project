@@ -1,4 +1,4 @@
-import { CloseOutlined } from '@mui/icons-material';
+import { CloseOutlined, WhatsApp, Instagram } from '@mui/icons-material';
 import {
 	Box,
 	Drawer,
@@ -8,6 +8,7 @@ import {
 	List,
 	ListItem,
 	Typography,
+	Divider,
 } from '@mui/material';
 import React from 'react';
 
@@ -34,11 +35,6 @@ const categoryList = [
 		link: '/aboutUs',
 		color: '#000',
 	},
-	{
-		name: 'Promoção',
-		link: '/promocao',
-		color: '#b41919',
-	},
 ];
 
 type AnchorCategoryDrawer = {
@@ -59,87 +55,99 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 	setAnchorCategoryDrawer,
 }) => {
 	return (
-		<div>
-			<React.Fragment key={'left'}>
-				<Drawer
-					anchor={'left'}
-					open={anchorCategoryDrawer['left']}
-					sx={{
-						'.MuiDrawer-paperAnchorLeft': {
-							minWidth: { xs: '100%' },
-						},
-					}}
-				>
-					<Grid container padding={2}>
-						<Grid item xs={12}>
-							<IconButton
-								onClick={() =>
-									setAnchorCategoryDrawer({ left: false })
-								}
-							>
-								<CloseOutlined />
-							</IconButton>
-						</Grid>
-						<Grid item xs={12}>
+		<Drawer
+			anchor={'left'}
+			open={anchorCategoryDrawer['left']}
+			onClose={() => setAnchorCategoryDrawer({ left: false })}
+			sx={{
+				'.MuiDrawer-paperAnchorLeft': {
+					minWidth: { xs: '100%' },
+				},
+			}}
+		>
+			<Grid container direction="column" spacing={2} padding={2}>
+				<Grid item container justifyContent="flex-end">
+					<IconButton
+						onClick={() => setAnchorCategoryDrawer({ left: false })}
+					>
+						<CloseOutlined />
+					</IconButton>
+				</Grid>
+				<Grid item>
+					<Box display="flex" justifyContent="center">
+						<Link href={'/'} sx={{ height: '100px' }}>
 							<Box
-								width={'100%'}
-								display={'flex'}
-								justifyContent={'center'}
-							>
-								<Link href={'/'} sx={{ height: '100px' }}>
-									<Box
-										component={'img'}
-										src={logoLivier}
-										sx={{ height: '100%' }}
-									/>
+								component={'img'}
+								src={logoLivier}
+								sx={{ height: '100%' }}
+								alt="Logo Livier"
+							/>
+						</Link>
+					</Box>
+				</Grid>
+				<Grid item>
+					<List>
+						{categoryList.map((category) => (
+							<ListItem key={category.name}>
+								<Link
+									href={category.link}
+									sx={{
+										color: category.color,
+										textDecoration: 'none',
+										'&:hover': {
+											textDecoration: 'underline',
+										},
+									}}
+								>
+									<Typography
+										fontSize={'16px'}
+										fontWeight={400}
+										variant="overline"
+									>
+										{category.name}
+									</Typography>
 								</Link>
-							</Box>
-
-							<Box marginTop={4}>
-								<Typography
-									variant="h6"
-									fontWeight={500}
-									textAlign={'center'}
-								>
-									CATEGORIAS
-								</Typography>
-								<Box
-									display={'flex'}
-									flexDirection={'column'}
-									alignItems={'center'}
-									justifyContent={'center'}
-								>
-									<List>
-										{categoryList.map((category) => (
-											<ListItem
-												key={category.name}
-												sx={{
-													justifyContent: 'center',
-												}}
-											>
-												<Link
-													href={category.link}
-													sx={{
-														color: category.color,
-													}}
-												>
-													<Typography
-														fontSize={'16px'}
-														fontWeight={400}
-													>
-														{category.name}
-													</Typography>
-												</Link>
-											</ListItem>
-										))}
-									</List>
-								</Box>
-							</Box>
-						</Grid>
-					</Grid>
-				</Drawer>
-			</React.Fragment>
-		</div>
+							</ListItem>
+						))}
+					</List>
+					<Divider />
+					<List>
+						<ListItem>
+							<Link
+								href="https://wa.me/1234567890"
+								target="_blank"
+								rel="noopener"
+								sx={{
+									textDecoration: 'none',
+									display: 'flex',
+									alignItems: 'center',
+									color: '#000',
+								}}
+							>
+								<WhatsApp sx={{ marginRight: '8px' }} />
+								<Typography>WhatsApp</Typography>
+							</Link>
+						</ListItem>
+						<ListItem>
+							<Link
+								href="https://www.instagram.com/yourprofile"
+								target="_blank"
+								rel="noopener"
+								sx={{
+									textDecoration: 'none',
+									display: 'flex',
+									alignItems: 'center',
+									color: '#000',
+								}}
+							>
+								<Instagram sx={{ marginRight: '8px' }} />
+								<Typography>Instagram</Typography>
+							</Link>
+						</ListItem>
+					</List>
+				</Grid>
+			</Grid>
+		</Drawer>
 	);
 };
 

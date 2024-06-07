@@ -14,7 +14,7 @@ const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
 			if (ref.current) {
 				const top = ref.current.getBoundingClientRect().top;
 				const windowHeight = window.innerHeight;
-				setIsVisible(top < windowHeight * 0.5);
+				setIsVisible(top < windowHeight * 1);
 			}
 		};
 
@@ -26,7 +26,7 @@ const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
 		};
 	}, []);
 	return (
-		<Grow in={isVisible} timeout={2000}>
+		<Grow in={isVisible} timeout={1500}>
 			<Grid ref={ref} container spacing={2} paddingX={3} mb={4}>
 				{images.map((imageUrl, index) => (
 					<Grid item xs={12} sm={4} key={index}>

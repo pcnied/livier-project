@@ -1,40 +1,44 @@
 import React from 'react';
+
 import InfoGrid from '../InfoGrid';
-import {
-	Star,
-	Palette,
-	ArtTrack,
-	CheckCircle,
-	ShoppingCart,
-} from '@mui/icons-material';
 
 const Infos: React.FC = () => {
 	const infoItems = [
 		{
-			title: 'VISUAL PROFISSIONAL',
-			description: 'Aplicações profissionais',
-			icon: <Star sx={{ color: 'white' }} />,
+			title: 'Desenvolvimento',
+			description: 'Websites, Landing Pages, Aplicativos, Advertoriais',
+			imageUrl: '../../../public/assets/internet.png',
 		},
 		{
-			title: 'PADRONIZAÇÃO DO ESTILO',
-			description: 'Paleta de cores e identidade da marca',
-			icon: <Palette sx={{ color: 'white' }} />,
+			title: 'Desing Gráfico',
+			description:
+				'Identidade Visual, Layouts, Ilustrações, Materiais Publicitários',
+			imageUrl: '../../../public/assets/web-design.png',
 		},
 		{
-			title: 'ARTES AVULSAS',
-			description: 'Quantidade personalizada',
-			icon: <ArtTrack sx={{ color: 'white' }} />,
+			title: 'Redes Sociais',
+			description:
+				'Produção de conteúdo, Monitoramento, Gerenciamento, Anúncios',
+			imageUrl: '../../../public/assets/midia-social.png',
 		},
 		{
-			title: 'CREDIBILIDADE',
-			description: 'Para sua Marca',
-			icon: <CheckCircle sx={{ color: 'white' }} />,
+			title: 'Estratégia',
+			description:
+				'Branding, Pesquisa de Mercado, Definição de Público-Alvo, Posicionamento',
+			imageUrl: '../../../public/assets/estrategia.png',
 		},
 
 		{
-			title: 'AUTORIDADE E DESEJO DE COMPRA',
-			description: 'Nos visitantes e usuários',
-			icon: <ShoppingCart sx={{ color: 'white' }} />,
+			title: 'Ominichannel',
+			description:
+				'Integração de Canais, Consistência de Marca, Experiência do Cliente, Estratégias de Comunicação',
+			imageUrl: '../../../public/assets/ominichannel.png',
+		},
+		{
+			title: 'Atendimento ao Cliente/Chatbot',
+			description:
+				'Interface do Usuário, Fluxos de Conversação, Personalização, Experiência do Usuário',
+			imageUrl: '../../../public/assets/bate-papo-online.png',
 		},
 	];
 

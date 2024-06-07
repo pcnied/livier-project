@@ -26,9 +26,9 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 				height: '320px',
 				margin: 'auto',
 				marginBottom: '20px',
-				backgroundColor: '#f5f5f5', // Alterado para uma cor mais clara
-				borderRadius: '12px', // Adicionado para suavizar as bordas
-				boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Adicionado sombra
+				backgroundColor: '#e7f5ff',
+				borderRadius: '12px',
+				boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 				transition: 'transform 0.3s',
 				'&:hover': {
 					transform: 'scale(1.05)',
@@ -40,11 +40,11 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 				<Typography gutterBottom variant="h5" component="div">
 					{name}
 				</Typography>
-				<Typography variant="body1" color={'black'}>
+				<Typography variant="body1" color={'#0f4577'}>
 					<strong>O que está incluso:</strong>
 				</Typography>
 				{description.map((item, index) => (
-					<Typography fontSize={'14px'} color={'black'} key={index}>
+					<Typography fontSize={'14px'} color={'#0f4577'} key={index}>
 						- {item}
 					</Typography>
 				))}
@@ -59,7 +59,13 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 					<Button
 						variant="contained"
 						color="primary"
-						style={{ backgroundColor: '#001e32' }}
+						sx={{
+							backgroundColor: '#001e32',
+							width: '100%',
+							'&:hover': {
+								backgroundColor: '#0f4577',
+							},
+						}}
 					>
 						Adquirir
 					</Button>
@@ -75,32 +81,30 @@ const PricingPlans: React.FC = () => {
 			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
-					component="img"
-					src={contrateLivier}
+					component="div"
 					sx={{
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${contrateLivier})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: { xs: '200px', md: '500px' },
+						height: { xs: '250px', sm: '400px', md: '1000px' },
 						width: '100%',
+						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
+						position: 'relative',
 					}}
 				/>
 				<Typography
 					variant="overline"
-					fontWeight={500}
+					fontWeight={400}
 					sx={{
+						textAlign: 'center',
 						position: 'absolute',
-						fontSize: { xs: '14px', md: '28px', sm: '18px' },
-						top: { xs: '25%', md: '40%' },
-						left: { xs: '30%', md: '50%' },
+						fontSize: { xs: '12px', sm: '16px', md: '30px' },
+						top: { xs: '30%', md: '50%' },
+						left: { xs: '50%', md: '50%' },
 						padding: '10px',
-						color: 'white',
-						transform: {
-							xs: 'translate(-10%, -20%)',
-							md: 'translate(-25%, -25%)',
-						},
-						backgroundColor: 'rgba(0, 0, 0, 0.5)',
-						borderRadius: '8px',
+						color: '#e7f5ff',
+						transform: 'translate(-50%, -50%)',
 					}}
 				>
 					Confira os principais planos da Livier para você e sua
@@ -124,7 +128,7 @@ const PricingPlans: React.FC = () => {
 				container
 				spacing={2}
 				justifyContent="center"
-				marginTop={2}
+				marginTop={1}
 				marginBottom={4}
 			>
 				<Grid item>

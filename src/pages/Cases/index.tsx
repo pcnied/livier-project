@@ -29,33 +29,30 @@ const Cases = () => {
 			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
-					component="img"
-					src={bannerCases}
+					component="div"
 					sx={{
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${bannerCases})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: { xs: '200px', md: '500px' },
+						height: { xs: '250px', sm: '400px', md: '1000px' },
 						width: '100%',
+						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
+						position: 'relative',
 					}}
 				/>
 				<Typography
 					variant="overline"
-					textAlign={'center'}
-					fontWeight={500}
+					fontWeight={400}
 					sx={{
+						textAlign: 'center',
 						position: 'absolute',
-						fontSize: { xs: '14px', md: '28px', sm: '16px' },
-						top: { xs: '25%', md: '40%' },
-						left: { xs: '30%', md: '50%' },
+						fontSize: { xs: '12px', sm: '16px', md: '30px' },
+						top: { xs: '30%', md: '50%' },
+						left: { xs: '50%', md: '50%' },
 						padding: '10px',
-						color: 'white',
-						transform: {
-							xs: 'translate(-10%, -20%)',
-							md: 'translate(-25%, -25%)',
-						},
-						backgroundColor: 'rgba(0, 0, 0, 0.5)',
-						borderRadius: '8px',
+						color: '#e7f5ff',
+						transform: 'translate(-50%, -50%)',
 					}}
 				>
 					Alguns de nossos principais Projetos
@@ -71,36 +68,38 @@ const Cases = () => {
 					Web Design (E-commerces)
 				</Typography>
 			</Box>
-			<Presentation
-				imageUrl={oMeuDeus}
-				title="ÓMeuDeus"
-				siteUrl="www.omeudeus.com.br"
-			/>
-			<Presentation
-				imageUrl={petCoast}
-				title="PetCoast"
-				siteUrl="www.petcoast.com.br"
-			/>
-			<Presentation
-				imageUrl={basico}
-				title="Básico.com"
-				siteUrl="www.basico.com"
-			/>
-			<Box display={'flex'} justifyContent={'center'}>
-				<Typography
-					variant="overline"
-					fontSize="30px"
-					textAlign={'center'}
-					fontWeight={400}
-				>
-					Social Media
-				</Typography>
-			</Box>
-			{/* <Grid sx={{display: 'flex', justifyContent: 'center', mb: 2}}>
+			<Grid>
+				<Presentation
+					imageUrl={oMeuDeus}
+					title="ÓMeuDeus"
+					siteUrl="www.omeudeus.com.br"
+				/>
+				<Presentation
+					imageUrl={petCoast}
+					title="PetCoast"
+					siteUrl="www.petcoast.com.br"
+				/>
+				<Presentation
+					imageUrl={basico}
+					title="Básico.com"
+					siteUrl="www.basico.com"
+				/>
+				<Box display={'flex'} justifyContent={'center'}>
+					<Typography
+						variant="overline"
+						fontSize="30px"
+						textAlign={'center'}
+						fontWeight={400}
+					>
+						Social Media
+					</Typography>
+				</Box>
+				{/* <Grid sx={{display: 'flex', justifyContent: 'center', mb: 2}}>
 			<Divider sx={{ width: '80%' }}></Divider>
 			</Grid> */}
 
-			<ImagesRow images={[socialOne, socialTwo, socialThree]} />
+				<ImagesRow images={[socialOne, socialTwo, socialThree]} />
+			</Grid>
 
 			<Footer />
 		</React.Fragment>

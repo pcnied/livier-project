@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Grow } from '@mui/material';
 
 interface PresentationProps {
-	title: string;
-	siteUrl: string;
+	title?: string;
+	siteUrl?: string;
 	imageUrl: string;
 }
 
