@@ -27,9 +27,16 @@ const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
 	}, []);
 	return (
 		<Grow in={isVisible} timeout={1500}>
-			<Grid ref={ref} container spacing={2} paddingX={3} mb={4}>
+			<Grid
+				ref={ref}
+				container
+				justifyContent={'center'}
+				spacing={2}
+				paddingX={3}
+				mb={4}
+			>
 				{images.map((imageUrl, index) => (
-					<Grid item xs={12} sm={4} key={index}>
+					<Grid item xs={8} sm={3} key={index}>
 						<img
 							src={imageUrl}
 							alt={`Image ${index + 1}`}

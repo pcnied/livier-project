@@ -1,14 +1,15 @@
-import { Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import livierBanner from '../../../public/assets/livierBanner.jpg';
-import CardCategories from '../../components/CardCategories';
+import aboutUs from '../../../public/assets/about-us.jpg';
+import pedro from '../../../public/assets/pedro.jpeg';
+import luiza from '../../../public/assets/luiza.jpeg';
 import Footer from '../../components/Footer';
-import Infos from '../../components/Infos';
 import NavBar from '../../components/NavBar';
+import AboutSection from '../../AboutSection';
 
-const Home = () => {
-	document.title = 'Home | Livier';
+const AboutUs = () => {
+	document.title = 'Sobre Nós | Livier';
 
 	return (
 		<React.Fragment>
@@ -17,7 +18,7 @@ const Home = () => {
 				<Box
 					component="div"
 					sx={{
-						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${livierBanner})`,
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${aboutUs})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
@@ -41,11 +42,20 @@ const Home = () => {
 						transform: 'translate(-50%, -50%)',
 					}}
 				>
-					Transformando ideias em realidades digitais com design
-					profissional e inovação contínua
+					Saiba quem somos e qual nosso objetivo
 				</Typography>
 			</Box>
-			<Box marginTop={2}>
+			<AboutSection
+				title={'Pedro Sodré'}
+				description="Descrição"
+				imageUrl={pedro}
+			/>
+			<AboutSection
+				title={'Luiza Leblanc'}
+				description="Descrição"
+				imageUrl={luiza}
+			/>
+			{/* <Box marginTop={2}>
 				<Grid item xs={12} padding={2} style={{ textAlign: 'center' }}>
 					<Typography
 						fontSize="24px"
@@ -56,34 +66,10 @@ const Home = () => {
 						Fornecemos os seguintes suportes para sua empresa
 					</Typography>
 				</Grid>
-			</Box>
-
-			<Grid container justifyContent="center">
-				<Box padding={2} marginBottom={4}>
-					<Infos />
-				</Box>
-				<Divider
-					sx={{
-						width: '80%',
-						borderBottomWidth: '1px',
-					}}
-				></Divider>
-
-				<Grid item xs={10} padding={2} style={{ textAlign: 'center' }}>
-					<Typography
-						fontSize="24px"
-						variant="overline"
-						fontWeight={300}
-						color={'black'}
-					>
-						Também podemos te ajudar com
-					</Typography>
-					<CardCategories />
-				</Grid>
-			</Grid>
+			</Box> */}
 			<Footer />
 		</React.Fragment>
 	);
 };
 
-export default Home;
+export default AboutUs;

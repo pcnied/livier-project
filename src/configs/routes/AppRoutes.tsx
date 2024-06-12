@@ -6,7 +6,6 @@ import CallCenter from '../../pages/CallCenter';
 import Cart from '../../pages/Cart';
 import Cases from '../../pages/Cases';
 import Data from '../../pages/Data';
-import DetailProduct from '../../pages/DetailProduct';
 import PricingPlans from '../../pages/Hire';
 import Home from '../../pages/Home';
 import Login from '../../pages/Login';
@@ -14,6 +13,7 @@ import PaymentMethods from '../../pages/PaymentMethods';
 import Products from '../../pages/Products';
 import Profile from '../../pages/Profile';
 import TermsOfUse from '../../pages/TermsOfUse';
+import AboutUs from '../../pages/AboutUs';
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -29,7 +29,7 @@ const AppRoutes: React.FC = () => {
 				<Route path="/cases" element={<Cases />} />
 				<Route path="/paymentMethods" element={<PaymentMethods />} />
 				<Route path="/cart" element={<Cart />} />
-				<Route path="/p/:productId" element={<DetailProduct />} />
+				<Route path="/aboutUs" element={<AboutUs />} />
 				<Route path="/c/:code" element={<Products />} />
 				<Route path="/address" element={<Address />} />
 				<Route path="/data" element={<Data />} />
