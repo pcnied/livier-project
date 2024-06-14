@@ -1,18 +1,11 @@
-import {
-	Box,
-	Grid,
-	Typography,
-	Grow,
-	useTheme,
-	useMediaQuery,
-} from '@mui/material';
+import { Box, Grid, Typography, Grow } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import calendarioIcon from '../../../public/assets/icons/calendario.png';
-import consultorIcon from '../../../public/assets/icons/consultor.png';
-import perfilIcon from '../../../public/assets/icons/perfil.png';
-import wwwIcon from '../../../public/assets/icons/www.png';
+import calendarioIcon from '../../../public/assets/calendario.png';
+import consultorIcon from '../../../public/assets/consultor.png';
+import perfilIcon from '../../../public/assets/perfil.png';
+import wwwIcon from '../../../public/assets/www.png';
 
 interface CardData {
 	title: string;

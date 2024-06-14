@@ -7,38 +7,38 @@ const Infos: React.FC = () => {
 		{
 			title: 'Desenvolvimento',
 			description: 'Websites, Landing Pages, Aplicativos, Advertoriais',
-			imageUrl: '../../../public/assets/icons/internet.png',
+			imageUrl: '../../../public/assets/internet.png',
 		},
 		{
 			title: 'Desing Gráfico',
 			description:
 				'Identidade Visual, Layouts, Ilustrações, Materiais Publicitários',
-			imageUrl: '../../../public/assets/icons/web-design.png',
+			imageUrl: '../../../public/assets/web-design.png',
 		},
 		{
 			title: 'Redes Sociais',
 			description:
 				'Produção de conteúdo, Monitoramento, Gerenciamento, Anúncios',
-			imageUrl: '../../../public/assets/icons/midia-social.png',
+			imageUrl: '../../../public/assets/midia-social.png',
 		},
 		{
 			title: 'Estratégia',
 			description:
 				'Branding, Pesquisa de Mercado, Definição de Público-Alvo, Posicionamento',
-			imageUrl: '../../../public/assets/icons/estrategia.png',
+			imageUrl: '../../../public/assets/estrategia.png',
 		},
 
 		{
 			title: 'Ominichannel',
 			description:
 				'Integração de Canais, Consistência de Marca, Experiência do Cliente, Estratégias de Comunicação',
-			imageUrl: '../../../public/assets/icons/ominichannel.png',
+			imageUrl: '../../../public/assets/ominichannel.png',
 		},
 		{
 			title: 'Atendimento ao Cliente/Chatbot',
 			description:
 				'Interface do Usuário, Fluxos de Conversação, Personalização, Experiência do Usuário',
-			imageUrl: '../../../public/assets/icons/bate-papo-online.png',
+			imageUrl: '../../../public/assets/bate-papo-online.png',
 		},
 	];
 

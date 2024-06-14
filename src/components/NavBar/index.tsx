@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 
-import logoLivier from '../../../public/assets/banners/logo-livier.png';
+import logoLivier from '../../../public/assets/logo-livier.png';
 import CategoryDrawer from '../CategoryDrawer';
 
 interface NavBarProps {

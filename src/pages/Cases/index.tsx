@@ -1,13 +1,13 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import basico from '../../../public/assets/banners/basico.png';
-import casesBanner from '../../../public/assets/banners/cases-banner.jpg';
-import oMeuDeus from '../../../public/assets/banners/omeudeus.png';
-import petCoast from '../../../public/assets/banners/petcoast.png';
-import socialOne from '../../../public/assets/banners/socialone.jpeg';
-import socialThree from '../../../public/assets/banners/socialthree.jpeg';
-import socialTwo from '../../../public/assets/banners/socialtwo.jpeg';
+import basico from '../../../public/assets/basico.png';
+import casesBanner from '../../../public/assets/cases-banner.jpg';
+import oMeuDeus from '../../../public/assets/omeudeus.png';
+import petCoast from '../../../public/assets/petcoast.png';
+import socialOne from '../../../public/assets/socialone.jpeg';
+import socialThree from '../../../public/assets/socialthree.jpeg';
+import socialTwo from '../../../public/assets/socialtwo.jpeg';
 import Footer from '../../components/Footer';
 import ImagesRow from '../../components/ImagesCases';
 import NavBar from '../../components/NavBar';

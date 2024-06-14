@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Grow } from '@mui/material';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface PresentationProps {
 	title?: string;
@@ -25,7 +25,7 @@ const Presentation: React.FC<PresentationProps> = ({
 		};
 
 		window.addEventListener('scroll', handleScroll);
-		handleScroll(); // Para verificar a visibilidade inicialmente
+		handleScroll();
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
@@ -39,7 +39,9 @@ const Presentation: React.FC<PresentationProps> = ({
 					<Typography fontSize={'32px'} mb={1} mt={1} gutterBottom>
 						{title}
 					</Typography>
-					<Typography fontSize={'20px'} mb={2}>{siteUrl}</Typography>
+					<Typography fontSize={'20px'} mb={2}>
+						{siteUrl}
+					</Typography>
 					<img
 						src={imageUrl}
 						alt="Presentation"

@@ -1,9 +1,9 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import bannerAboutUs from '../../../public/assets/banners/about-us-banner.jpg';
-import luiza from '../../../public/assets/banners/luiza.jpeg';
-import pedro from '../../../public/assets/banners/pedro.jpeg';
+import bannerAboutUs from '../../../public/assets/about-us-banner.jpg';
+import luiza from '../../../public/assets/luiza.jpeg';
+import pedro from '../../../public/assets/pedro.jpeg';
 import AboutSection from '../../components/AboutSection';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';

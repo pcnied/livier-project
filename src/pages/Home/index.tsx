@@ -1,7 +1,7 @@
 import { Box, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import livierBanner from '../../../public/assets/banners/home-banner.jpg';
+import livierBanner from '../../../public/assets/home-banner.jpg';
 import CardCategories from '../../components/CardCategories';
 import Footer from '../../components/Footer';
 import Infos from '../../components/Infos';

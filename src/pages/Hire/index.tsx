@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import contrateLivier from '../../../public/assets/banners/hire-banner.jpg';
+import contrateLivier from '../../../public/assets/hire-banner.jpg';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
 
@@ -36,7 +36,7 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 				},
 				display: 'flex',
 				flexDirection: 'column',
-				justifyContent: 'space-between', // Ensures the button is at the bottom
+				justifyContent: 'space-between',
 			}}
 		>
 			<CardContent>

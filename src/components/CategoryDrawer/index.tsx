@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import logoLivier from '../../../public/assets/banners/logo-livier.png';
+import logoLivier from '../../../public/assets/logo-livier.png';
 
 const categoryList = [
 	{
