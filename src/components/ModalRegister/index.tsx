@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../store/hooks';
 import { createUser } from '../../store/modules/users/usersSlice';
 import { User } from '../../types/user';
-import { ValidsDatas } from '../../types/validateData';
+import { ValidateData } from '../../types/validateData';
 import { emailRegex } from '../../utils/validators/regexDatas';
 import { SnackBarComponent } from '../SnackBar';
 
@@ -25,11 +25,11 @@ const ModalOpen: React.FC<ModalOpenProps> = ({ open, changeState }) => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 
-	const [errorEmail, setErrorEmail] = useState<ValidsDatas>({
+	const [errorEmail, setErrorEmail] = useState<ValidateData>({
 		helperText: '',
 		isValid: true,
 	});
-	const [errorSenha, setErrorSenha] = useState<ValidsDatas>({
+	const [errorSenha, setErrorSenha] = useState<ValidateData>({
 		helperText: '',
 		isValid: true,
 	});
