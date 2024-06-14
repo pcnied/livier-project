@@ -23,13 +23,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 				const windowHeight = window.innerHeight;
 				if (top < windowHeight * 0.8) {
 					setIsVisible(true);
-					setHasAnimated(true); // Marcar que a animação já ocorreu
+					setHasAnimated(true);
 				}
 			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
-		handleScroll(); // Para verificar a visibilidade inicialmente
+		handleScroll();
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
@@ -41,7 +41,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 			<Grow in={isVisible} timeout={1900}>
 				<Grid
 					container
-					spacing={4}
+					spacing={2}
 					alignItems="center"
 					justifyContent="center"
 					ref={ref}
@@ -50,7 +50,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 							? 'translateX(0)'
 							: 'translateX(-300px)',
 						opacity: isVisible ? 1 : 0,
-						transition: 'transform 1s ease, opacity 1s ease',
+						transition: 'transform 2s ease, opacity 1s ease',
 					}}
 				>
 					<Grid

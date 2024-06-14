@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-import logoLivier from '../../../public/assets/logoLivier.png';
+import logoLivier from '../../../public/assets/banners/logo-livier.png';
 
 const categoryList = [
 	{
@@ -32,7 +32,7 @@ const categoryList = [
 	},
 	{
 		name: 'Sobre Nós',
-		link: '/aboutUs',
+		link: '/about-us',
 		color: '#000',
 	},
 ];
@@ -114,7 +114,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 					<List>
 						<ListItem>
 							<Link
-								href="https://wa.me/1234567890"
+								href="https://wa.me/5583991429201"
 								target="_blank"
 								rel="noopener"
 								sx={{
@@ -130,7 +130,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 						</ListItem>
 						<ListItem>
 							<Link
-								href="https://www.instagram.com/yourprofile"
+								href="https://www.instagram.com/liviermkt/"
 								target="_blank"
 								rel="noopener"
 								sx={{

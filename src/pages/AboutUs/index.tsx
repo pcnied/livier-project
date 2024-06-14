@@ -1,12 +1,12 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import aboutUs from '../../../public/assets/about-us.jpg';
-import pedro from '../../../public/assets/pedro.jpeg';
-import luiza from '../../../public/assets/luiza.jpeg';
+import bannerAboutUs from '../../../public/assets/banners/about-us-banner.jpg';
+import luiza from '../../../public/assets/banners/luiza.jpeg';
+import pedro from '../../../public/assets/banners/pedro.jpeg';
+import AboutSection from '../../AboutSection';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
-import AboutSection from '../../AboutSection';
 
 const AboutUs = () => {
 	document.title = 'Sobre Nós | Livier';
@@ -18,7 +18,7 @@ const AboutUs = () => {
 				<Box
 					component="div"
 					sx={{
-						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${aboutUs})`,
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${bannerAboutUs})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
@@ -45,17 +45,7 @@ const AboutUs = () => {
 					Saiba quem somos e qual nosso objetivo
 				</Typography>
 			</Box>
-			<AboutSection
-				title={'Pedro Sodré'}
-				description="Descrição"
-				imageUrl={pedro}
-			/>
-			<AboutSection
-				title={'Luiza Leblanc'}
-				description="Descrição"
-				imageUrl={luiza}
-			/>
-			{/* <Box marginTop={2}>
+			<Box marginTop={2}>
 				<Grid item xs={12} padding={2} style={{ textAlign: 'center' }}>
 					<Typography
 						fontSize="24px"
@@ -63,10 +53,64 @@ const AboutUs = () => {
 						fontWeight={300}
 						color={'black'}
 					>
-						Fornecemos os seguintes suportes para sua empresa
+						NÓS SOMOS
 					</Typography>
 				</Grid>
-			</Box> */}
+			</Box>
+			<Box
+				display="flex"
+				justifyContent="center"
+				alignItems="center"
+				sx={{
+					width: '100%',
+					maxWidth: { xs: '100%', sm: '600px', md: '800px' },
+					margin: 'auto',
+				}}
+			>
+				<Grid item xs={12} paddingX={2}>
+					<Typography
+						textAlign="center"
+						sx={{
+							fontSize: { xs: '14px', sm: '16px', md: '24px' },
+						}}
+					>
+						Uma agência inovadora e focada em resultados, com uma
+						equipe de especialistas apaixonados por tecnologia. Ter
+						uma empresa exige trabalho e esforço enormes. Por isso
+						sabemos o quanto é importante que sejamos profissionais
+						comprometidos com qualidade, prazos e acima de tudo com
+						resultados. Integramos serviços dentro do marketing,
+						focando unicamente em tornar o trabalho do CEO
+						automatizado. Impulsionamos a sua empresa e maximizamos
+						sua presença digital!
+					</Typography>
+				</Grid>
+			</Box>
+			<Box marginTop={2}>
+				<Grid item xs={12} padding={2} style={{ textAlign: 'center' }}>
+					<Typography
+						fontSize="24px"
+						variant="overline"
+						fontWeight={300}
+						color={'black'}
+					>
+						Quem criou a Livier?
+					</Typography>
+				</Grid>
+			</Box>
+			<Grid mb={4}>
+				<AboutSection
+					title={'Pedro Sodré'}
+					description="Descrição"
+					imageUrl={pedro}
+				/>
+				<AboutSection
+					title={'Luiza Leblanc'}
+					description="Descrição"
+					imageUrl={luiza}
+				/>
+			</Grid>
+
 			<Footer />
 		</React.Fragment>
 	);

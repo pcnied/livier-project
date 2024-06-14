@@ -2,35 +2,34 @@ import { Box, Grid, Typography, Grow } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import calendarioIcon from '../../../public/assets/calendario.png';
-import consultorIcon from '../../../public/assets/consultor.png';
-import imagemPreta from '../../../public/assets/imagemPreta.jpg';
-import perfilIcon from '../../../public/assets/perfil.png';
-import wwwIcon from '../../../public/assets/www.png';
+import calendarioIcon from '../../../public/assets/icons/calendario.png';
+import consultorIcon from '../../../public/assets/icons/consultor.png';
+import perfilIcon from '../../../public/assets/icons/perfil.png';
+import wwwIcon from '../../../public/assets/icons/www.png';
 
 const cardData = [
 	{
 		title: 'Análise de Perfil',
-		href: '/c/canivetes',
-		src: imagemPreta,
+		href: '/hire',
+		// src:
 		iconSrc: perfilIcon,
 	},
 	{
 		title: 'Calendário de Conteúdo',
-		href: '/c/bones',
-		src: imagemPreta,
+		href: '/hire',
+		// src:
 		iconSrc: calendarioIcon,
 	},
 	{
 		title: 'Consultoria',
-		href: '/c/chaveiros',
-		src: imagemPreta,
+		href: '/hire',
+		// src:
 		iconSrc: consultorIcon,
 	},
 	{
 		title: 'Site Institucional',
-		href: '/c/chaveiros',
-		src: imagemPreta,
+		href: '/hire',
+		// src:
 		iconSrc: wwwIcon,
 	},
 ];
@@ -47,13 +46,11 @@ const CardCategories = () => {
 			const scrollDown =
 				currentScrollPos > prevScrollPos && currentScrollPos > 1600;
 
-			// Verifica se ainda não ocorreu o efeito e se o scroll está ocorrendo para baixo
 			if (!isEffectOccurred && scrollDown) {
 				setIsVisible(true);
-				setIsEffectOccurred(true); // Define que o efeito ocorreu
+				setIsEffectOccurred(true);
 			}
 
-			// Atualiza a posição anterior de rolagem
 			setPrevScrollPos(currentScrollPos);
 		};
 
@@ -69,7 +66,7 @@ const CardCategories = () => {
 			<Grid
 				container
 				sx={{ marginX: '0', padding: '16px' }}
-				justifyContent={'center'} // Centraliza os itens no contêiner
+				justifyContent={'center'}
 				alignItems={'center'}
 			>
 				{cardData.map((card, index) => (
@@ -83,7 +80,7 @@ const CardCategories = () => {
 							display: 'flex',
 							justifyContent: 'center',
 							padding: '8px',
-						}} // Adiciona padding para espaçamento entre itens
+						}}
 					>
 						<Grow in={isVisible} timeout={2000}>
 							<Box
@@ -94,8 +91,8 @@ const CardCategories = () => {
 									borderRadius: '16px',
 									overflow: 'hidden',
 									height: { xs: '250px', md: '350px' },
-									width: '100%', // Garante que o Box ocupe toda a largura disponível do Grid item
-									maxWidth: '300px', // Define uma largura máxima para manter os cards alinhados
+									width: '100%',
+									maxWidth: '300px',
 									bgcolor: '#0f4577',
 									backgroundRepeat: 'no-repeat',
 									backgroundSize: 'cover',

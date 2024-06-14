@@ -9,45 +9,41 @@ import { Link } from 'react-router-dom';
 
 const linksContact = [
 	{
-		title: '(83) 8828-3128',
+		title: '(83) 9142-9201',
 	},
 	{
-		title: 'contato@livier.com',
+		title: 'liviermkt@gmail.com',
 	},
 ];
 
 const linksHelp = [
 	{
 		title: 'Sobre Nós',
-		url: '/aboutUs',
+		url: '/about-us',
 	},
 	{
 		title: 'Contrate a Livier',
 		url: '/hire',
-	},
-	{
-		title: 'Formas de Pagamento',
-		url: '/payment-methods',
 	},
 ];
 
 const linksSocialMedia = [
 	{
 		title: 'Instagram',
-		url: 'https://www.instagram.com/',
+		url: 'https://www.instagram.com/liviermkt',
 		icon: <i className="fa fa-instagram" style={{ fontSize: '36px' }}></i>,
 	},
 	{
 		title: 'Facebook',
-		url: 'https://www.facebook.com/',
+		url: 'https://www.facebook.com/profile.php?id=61554559621184',
 	},
 	{
-		title: 'Youtube',
-		url: 'https://www.youtube.com/',
+		title: 'TikTok',
+		url: 'https://www.tiktok.com/@liviermkt',
 	},
 	{
 		title: 'LinkedIn',
-		url: 'https://www.linkedin.com/',
+		url: 'https://www.linkedin.com/in/livier-mkt-9b67452b9',
 	},
 ];
 

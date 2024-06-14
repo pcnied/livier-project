@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 
-import logoLivier from '../../../public/assets/logoLivier.png';
+import logoLivier from '../../../public/assets/banners/logo-livier.png';
 import CategoryDrawer from '../CategoryDrawer';
 
 interface NavBarProps {
@@ -26,18 +26,13 @@ const navLinks = [
 	{ name: 'Home', path: '/' },
 	{ name: 'Cases Livier', path: '/cases' },
 	{ name: 'Contrate a Livier', path: '/hire' },
-	{ name: 'Sobre Nós', path: '/aboutUs' },
+	{ name: 'Sobre Nós', path: '/about-us' },
 ];
 
 const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
-	// const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const [anchorCategoryDrawer, setAnchorCategoryDrawer] = useState({
 		left: false,
 	});
-
-	// const handleMenuClose = () => {
-	// 	setAnchorEl(null);
-	// };
 
 	const handleCategoryDrawerOpen = () => {
 		setAnchorCategoryDrawer({ left: true });
@@ -65,7 +60,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 						<Link
 							href={'/'}
 							sx={{
-								height: '100px',
+								height: '120px',
 								width: { xs: '100%', sm: 'auto' },
 								display: { xs: 'flex', sm: 'auto' },
 								justifyContent: 'center',
@@ -121,7 +116,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 								color="primary"
 								onClick={() =>
 									window.open(
-										'https://wa.me/1234567890',
+										'https://wa.me/5583991429201',
 										'_blank',
 									)
 								}
@@ -133,7 +128,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 								color="primary"
 								onClick={() =>
 									window.open(
-										'https://www.instagram.com/yourprofile',
+										'https://www.instagram.com/liviermkt/',
 										'_blank',
 									)
 								}

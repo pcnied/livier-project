@@ -1,26 +1,17 @@
-import { ExpandMore } from '@mui/icons-material';
-import {
-	Accordion,
-	AccordionDetails,
-	AccordionSummary,
-	Box,
-	Divider,
-	Grid,
-	Typography,
-} from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 
+import basico from '../../../public/assets/banners/basico.png';
+import casesBanner from '../../../public/assets/banners/cases-banner.jpg';
+import oMeuDeus from '../../../public/assets/banners/omeudeus.png';
+import petCoast from '../../../public/assets/banners/petcoast.png';
+import socialOne from '../../../public/assets/banners/socialone.jpeg';
+import socialThree from '../../../public/assets/banners/socialthree.jpeg';
+import socialTwo from '../../../public/assets/banners/socialtwo.jpeg';
 import Footer from '../../components/Footer';
+import ImagesRow from '../../components/ImagesComp';
 import NavBar from '../../components/NavBar';
 import Presentation from '../../components/Presentation';
-import oMeuDeus from '../../../public/assets/omeudeus.png';
-import petCoast from '../../../public/assets/petcoast.png';
-import basico from '../../../public/assets/basico.png';
-import socialOne from '../../../public/assets/socialone.jpeg';
-import socialTwo from '../../../public/assets/socialtwo.jpeg';
-import socialThree from '../../../public/assets/socialthree.jpeg';
-import bannerCases from '../../../public/assets/bannerCases.jpg';
-import ImagesRow from '../../components/ImagesComp';
 
 const Cases = () => {
 	document.title = 'Cases | Livier';
@@ -31,7 +22,7 @@ const Cases = () => {
 				<Box
 					component="div"
 					sx={{
-						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${bannerCases})`,
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${casesBanner})`,
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
@@ -94,9 +85,6 @@ const Cases = () => {
 						Social Media
 					</Typography>
 				</Box>
-				{/* <Grid sx={{display: 'flex', justifyContent: 'center', mb: 2}}>
-			<Divider sx={{ width: '80%' }}></Divider>
-			</Grid> */}
 
 				<ImagesRow images={[socialOne, socialTwo, socialThree]} />
 			</Grid>
