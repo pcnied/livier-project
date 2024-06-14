@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Box, Grow, Grid } from '@mui/material';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface AboutSectionProps {
 	title?: string;
 	imageUrl: string;
-	description: string;
+	description?: string;
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({

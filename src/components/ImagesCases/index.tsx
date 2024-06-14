@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
 import { Grid, Grow } from '@mui/material';
+import React, { useEffect, useState, useRef } from 'react';
 
-interface ImagesRowProps {
+interface ImagesCasesProps {
 	images: string[];
 }
 
-const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
+const ImagesCases: React.FC<ImagesCasesProps> = ({ images }) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -19,7 +19,7 @@ const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
 		};
 
 		window.addEventListener('scroll', handleScroll);
-		handleScroll(); // Para verificar a visibilidade inicialmente
+		handleScroll();
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
@@ -49,4 +49,4 @@ const ImagesRow: React.FC<ImagesRowProps> = ({ images }) => {
 	);
 };
 
-export default ImagesRow;
+export default ImagesCases;

@@ -19,7 +19,7 @@ const FormLogin = () => {
 
 	useEffect(() => {
 		if (Cookies.get('auth')) {
-			navigate('/c/novidades');
+			navigate('/');
 		}
 	});
 
@@ -39,7 +39,7 @@ const FormLogin = () => {
 
 		setTimeout(() => {
 			if (Cookies.get('auth')) {
-				navigate('/c/novidades');
+				navigate('/');
 			}
 		}, 1000);
 	};

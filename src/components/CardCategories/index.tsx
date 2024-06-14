@@ -1,5 +1,12 @@
-import { Box, Grid, Typography, Grow } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import {
+	Box,
+	Grid,
+	Typography,
+	Grow,
+	useTheme,
+	useMediaQuery,
+} from '@mui/material';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import calendarioIcon from '../../../public/assets/icons/calendario.png';
@@ -7,59 +14,70 @@ import consultorIcon from '../../../public/assets/icons/consultor.png';
 import perfilIcon from '../../../public/assets/icons/perfil.png';
 import wwwIcon from '../../../public/assets/icons/www.png';
 
-const cardData = [
+interface CardData {
+	title: string;
+	href: string;
+	iconSrc: string;
+}
+
+const cardData: CardData[] = [
 	{
 		title: 'Análise de Perfil',
 		href: '/hire',
-		// src:
 		iconSrc: perfilIcon,
 	},
 	{
 		title: 'Calendário de Conteúdo',
 		href: '/hire',
-		// src:
 		iconSrc: calendarioIcon,
 	},
 	{
 		title: 'Consultoria',
 		href: '/hire',
-		// src:
 		iconSrc: consultorIcon,
 	},
 	{
 		title: 'Site Institucional',
 		href: '/hire',
-		// src:
 		iconSrc: wwwIcon,
 	},
 ];
 
-const CardCategories = () => {
+const CardCategories: React.FC = () => {
 	const navigate = useNavigate();
-	const [isVisible, setIsVisible] = useState(false);
-	const [isEffectOccurred, setIsEffectOccurred] = useState(false);
-	const [prevScrollPos, setPrevScrollPos] = useState(0);
+	const [visibleCards, setVisibleCards] = useState<number[]>([]);
+	const observer = useRef<IntersectionObserver | null>(null);
 
 	useEffect(() => {
-		const handleScroll = () => {
-			const currentScrollPos = window.pageYOffset;
-			const scrollDown =
-				currentScrollPos > prevScrollPos && currentScrollPos > 1600;
-
-			if (!isEffectOccurred && scrollDown) {
-				setIsVisible(true);
-				setIsEffectOccurred(true);
-			}
-
-			setPrevScrollPos(currentScrollPos);
+		const handleIntersect: IntersectionObserverCallback = (entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const index = Number(
+						entry.target.getAttribute('data-index'),
+					);
+					setVisibleCards((prevVisibleCards) => {
+						if (!prevVisibleCards.includes(index)) {
+							return [...prevVisibleCards, index];
+						}
+						return prevVisibleCards;
+					});
+				}
+			});
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		observer.current = new IntersectionObserver(handleIntersect, {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.1,
+		});
+
+		const elements = document.querySelectorAll('.card');
+		elements.forEach((el) => observer.current?.observe(el));
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
+			elements.forEach((el) => observer.current?.unobserve(el));
 		};
-	}, [prevScrollPos, isEffectOccurred]);
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -73,6 +91,8 @@ const CardCategories = () => {
 					<Grid
 						item
 						key={index}
+						data-index={index}
+						className="card"
 						xs={12}
 						sm={6}
 						md={3}
@@ -82,7 +102,7 @@ const CardCategories = () => {
 							padding: '8px',
 						}}
 					>
-						<Grow in={isVisible} timeout={2000}>
+						<Grow in={visibleCards.includes(index)} timeout={2500}>
 							<Box
 								onClick={() => {
 									navigate(card.href);
@@ -117,7 +137,6 @@ const CardCategories = () => {
 										left: '0',
 										right: '0',
 										bottom: '0',
-
 										display: 'flex',
 										justifyContent: 'center',
 										alignItems: 'center',

@@ -9,7 +9,7 @@ import socialOne from '../../../public/assets/banners/socialone.jpeg';
 import socialThree from '../../../public/assets/banners/socialthree.jpeg';
 import socialTwo from '../../../public/assets/banners/socialtwo.jpeg';
 import Footer from '../../components/Footer';
-import ImagesRow from '../../components/ImagesComp';
+import ImagesRow from '../../components/ImagesCases';
 import NavBar from '../../components/NavBar';
 import Presentation from '../../components/Presentation';
 

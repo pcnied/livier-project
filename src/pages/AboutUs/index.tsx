@@ -4,7 +4,7 @@ import React from 'react';
 import bannerAboutUs from '../../../public/assets/banners/about-us-banner.jpg';
 import luiza from '../../../public/assets/banners/luiza.jpeg';
 import pedro from '../../../public/assets/banners/pedro.jpeg';
-import AboutSection from '../../AboutSection';
+import AboutSection from '../../components/AboutSection';
 import Footer from '../../components/Footer';
 import NavBar from '../../components/NavBar';
 
@@ -99,16 +99,8 @@ const AboutUs = () => {
 				</Grid>
 			</Box>
 			<Grid mb={4}>
-				<AboutSection
-					title={'Pedro Sodré'}
-					description="Descrição"
-					imageUrl={pedro}
-				/>
-				<AboutSection
-					title={'Luiza Leblanc'}
-					description="Descrição"
-					imageUrl={luiza}
-				/>
+				<AboutSection title={'Pedro Sodré'} imageUrl={pedro} />
+				<AboutSection title={'Luiza Leblanc'} imageUrl={luiza} />
 			</Grid>
 
 			<Footer />

@@ -25,6 +25,10 @@ const linksHelp = [
 		title: 'Contrate a Livier',
 		url: '/hire',
 	},
+	{
+		title: 'Política de Privacidade',
+		url: '/privacy-policy',
+	},
 ];
 
 const linksSocialMedia = [
