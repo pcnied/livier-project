@@ -8,16 +8,13 @@ import petCoast from '../../../public/assets/petcoast.png';
 import socialOne from '../../../public/assets/socialone.jpeg';
 import socialThree from '../../../public/assets/socialthree.jpeg';
 import socialTwo from '../../../public/assets/socialtwo.jpeg';
-import Footer from '../../components/Footer';
 import ImagesRow from '../../components/ImagesCases';
-import NavBar from '../../components/NavBar';
 import Presentation from '../../components/Presentation';
 
 const Cases = () => {
 	document.title = 'Cases | Livier';
 	return (
 		<React.Fragment>
-			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
 					component="div"
@@ -88,8 +85,6 @@ const Cases = () => {
 
 				<ImagesRow images={[socialOne, socialTwo, socialThree]} />
 			</Grid>
-
-			<Footer />
 		</React.Fragment>
 	);
 };

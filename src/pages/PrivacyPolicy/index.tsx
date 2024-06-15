@@ -1,21 +1,11 @@
-import {
-	Accordion,
-	AccordionDetails,
-	AccordionSummary,
-	Container,
-	Divider,
-	Grid,
-	Typography,
-} from '@mui/material';
+import { Container, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 
-import Footer from '../../components/Footer';
-import NavBar from '../../components/NavBar';
-
 const PrivacyPolicy = () => {
+	document.title = 'Política de Privacidade | Livier';
+
 	return (
 		<React.Fragment>
-			<NavBar positionAppBar="static" />
 			<Grid
 				container
 				sx={{
@@ -96,7 +86,6 @@ const PrivacyPolicy = () => {
 					</Container>
 				</Grid>
 			</Grid>
-			<Footer />
 		</React.Fragment>
 	);
 };

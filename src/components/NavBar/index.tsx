@@ -1,13 +1,7 @@
 import { Instagram, Menu as MenuIcon, WhatsApp } from '@mui/icons-material';
-import {
-	Box,
-	AppBar,
-	Toolbar,
-	IconButton,
-	Link,
-	Typography,
-} from '@mui/material';
+import { Box, AppBar, Toolbar, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import logoLivier from '../../../public/assets/logo-livier.png';
 import CategoryDrawer from '../CategoryDrawer';
@@ -23,10 +17,10 @@ interface NavBarProps {
 }
 
 const navLinks = [
-	{ name: 'Home', path: '/' },
-	{ name: 'Cases Livier', path: '/cases' },
-	{ name: 'Contrate a Livier', path: '/hire' },
-	{ name: 'Sobre Nós', path: '/about-us' },
+	{ name: 'Home', link: '/' },
+	{ name: 'Cases Livier', link: '/cases' },
+	{ name: 'Contrate a Livier', link: '/hire' },
+	{ name: 'Sobre Nós', link: '/about-us' },
 ];
 
 const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
@@ -57,19 +51,16 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 							<MenuIcon />
 						</IconButton>
 
-						<Link
-							href={'/'}
-							sx={{
-								height: '120px',
-								width: { xs: '100%', sm: 'auto' },
-								display: { xs: 'flex', sm: 'auto' },
-								justifyContent: 'center',
-							}}
-						>
+						<Link to={'/'} style={{ textDecoration: 'none' }}>
 							<Box
 								component={'img'}
 								src={logoLivier}
-								sx={{ height: '100%' }}
+								sx={{
+									height: '120px',
+									width: 'auto',
+									display: 'flex',
+									justifyContent: 'center',
+								}}
 							/>
 						</Link>
 
@@ -80,32 +71,33 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 								height: '100%',
 								alignItems: 'center',
 							}}
-							display={'flex'}
 						>
 							{navLinks.map((link) => (
-								<Link
+								<Box
 									key={link.name}
-									href={link.path}
 									sx={{
-										textDecoration: 'none',
-										color: '#0f4577',
 										marginLeft: '20px',
 										transition: 'all 0.2s',
-										colorScheme: '#dd0000d4',
-										':hover': {
-											color: '#3b3b3bd2',
-										},
+										'&:hover': { color: '#3b3b3bd2' },
 									}}
 								>
-									<Typography
-										component={'h4'}
-										variant="overline"
-										fontSize={'16px'}
-										noWrap
+									<Link
+										to={link.link}
+										style={{
+											textDecoration: 'none',
+											color: '#0f4577',
+										}}
 									>
-										{link.name}
-									</Typography>
-								</Link>
+										<Typography
+											component={'h4'}
+											variant="overline"
+											fontSize={'16px'}
+											noWrap
+										>
+											{link.name}
+										</Typography>
+									</Link>
+								</Box>
 							))}
 						</Box>
 

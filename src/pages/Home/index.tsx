@@ -3,16 +3,13 @@ import React from 'react';
 
 import livierBanner from '../../../public/assets/home-banner.jpg';
 import CardCategories from '../../components/CardCategories';
-import Footer from '../../components/Footer';
-import Infos from '../../components/Infos';
-import NavBar from '../../components/NavBar';
+import CardHomeCompact from '../../components/CardHomeCompact';
 
 const Home = () => {
 	document.title = 'Home | Livier';
 
 	return (
 		<React.Fragment>
-			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
 					component="div"
@@ -60,7 +57,7 @@ const Home = () => {
 
 			<Grid container justifyContent="center">
 				<Box padding={2} marginBottom={4}>
-					<Infos />
+					<CardHomeCompact />
 				</Box>
 				<Divider
 					sx={{
@@ -81,7 +78,6 @@ const Home = () => {
 					<CardCategories />
 				</Grid>
 			</Grid>
-			<Footer />
 		</React.Fragment>
 	);
 };

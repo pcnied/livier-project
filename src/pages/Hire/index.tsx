@@ -9,8 +9,6 @@ import {
 import React from 'react';
 
 import contrateLivier from '../../../public/assets/hire-banner.jpg';
-import Footer from '../../components/Footer';
-import NavBar from '../../components/NavBar';
 
 interface PlanProps {
 	name: string;
@@ -98,7 +96,6 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 const PricingPlans: React.FC = () => {
 	return (
 		<React.Fragment>
-			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
 					component="div"
@@ -312,7 +309,6 @@ const PricingPlans: React.FC = () => {
 					</Grid>
 				</Grid>
 			</Box>
-			<Footer />
 		</React.Fragment>
 	);
 };

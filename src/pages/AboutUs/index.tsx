@@ -5,15 +5,12 @@ import bannerAboutUs from '../../../public/assets/about-us-banner.jpg';
 import luiza from '../../../public/assets/luiza.jpeg';
 import pedro from '../../../public/assets/pedro.jpeg';
 import AboutSection from '../../components/AboutSection';
-import Footer from '../../components/Footer';
-import NavBar from '../../components/NavBar';
 
 const AboutUs = () => {
 	document.title = 'Sobre Nós | Livier';
 
 	return (
 		<React.Fragment>
-			<NavBar positionAppBar="static" />
 			<Box sx={{ width: '100%' }}>
 				<Box
 					component="div"
@@ -102,8 +99,6 @@ const AboutUs = () => {
 				<AboutSection title={'Pedro Sodré'} imageUrl={pedro} />
 				<AboutSection title={'Luiza Leblanc'} imageUrl={luiza} />
 			</Grid>
-
-			<Footer />
 		</React.Fragment>
 	);
 };
