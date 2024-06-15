@@ -4,13 +4,13 @@ import {
 	Drawer,
 	Grid,
 	IconButton,
-	Link,
 	List,
 	ListItem,
 	Typography,
 	Divider,
 } from '@mui/material';
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 import logoLivier from '../../../public/assets/logo-livier.png';
 
@@ -44,9 +44,7 @@ type AnchorCategoryDrawer = {
 interface CategoryDrawerProps {
 	anchorCategoryDrawer: AnchorCategoryDrawer;
 	setAnchorCategoryDrawer: React.Dispatch<
-		React.SetStateAction<{
-			left: boolean;
-		}>
+		React.SetStateAction<AnchorCategoryDrawer>
 	>;
 }
 
@@ -56,12 +54,12 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 }) => {
 	return (
 		<Drawer
-			anchor={'left'}
-			open={anchorCategoryDrawer['left']}
+			anchor="left"
+			open={anchorCategoryDrawer.left}
 			onClose={() => setAnchorCategoryDrawer({ left: false })}
 			sx={{
 				'.MuiDrawer-paperAnchorLeft': {
-					minWidth: { xs: '100%' },
+					minWidth: '100%',
 				},
 			}}
 		>
@@ -75,74 +73,66 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 				</Grid>
 				<Grid item>
 					<Box display="flex" justifyContent="center">
-						<Link href={'/'} sx={{ height: '100px' }}>
-							<Box
-								component={'img'}
+						<RouterLink to="/">
+							<img
 								src={logoLivier}
-								sx={{ height: '100%' }}
 								alt="Logo Livier"
+								style={{ height: '100px' }}
 							/>
-						</Link>
+						</RouterLink>
 					</Box>
 				</Grid>
 				<Grid item>
 					<List>
 						{categoryList.map((category) => (
 							<ListItem key={category.name}>
-								<Link
-									href={category.link}
-									sx={{
+								<RouterLink
+									to={category.link}
+									style={{
 										color: category.color,
 										textDecoration: 'none',
-										'&:hover': {
-											textDecoration: 'underline',
-										},
 									}}
 								>
-									<Typography
-										fontSize={'16px'}
-										fontWeight={400}
-										variant="overline"
-									>
+									<Typography variant="overline">
 										{category.name}
 									</Typography>
-								</Link>
+								</RouterLink>
 							</ListItem>
 						))}
 					</List>
 					<Divider />
 					<List>
 						<ListItem>
-							<Link
+							<a
 								href="https://wa.me/5583991429201"
 								target="_blank"
-								rel="noopener"
-								sx={{
+								rel="noopener noreferrer"
+								style={{
 									textDecoration: 'none',
 									display: 'flex',
 									alignItems: 'center',
 									color: '#000',
 								}}
 							>
-								<WhatsApp sx={{ marginRight: '8px' }} />
+								<WhatsApp style={{ marginRight: '8px' }} />
 								<Typography>WhatsApp</Typography>
-							</Link>
+							</a>
 						</ListItem>
 						<ListItem>
-							<Link
+							<a
 								href="https://www.instagram.com/liviermkt/"
 								target="_blank"
-								rel="noopener"
-								sx={{
+								rel="noopener noreferrer"
+								style={{
 									textDecoration: 'none',
 									display: 'flex',
 									alignItems: 'center',
 									color: '#000',
 								}}
 							>
-								<Instagram sx={{ marginRight: '8px' }} />
+								<Instagram style={{ marginRight: '8px' }} />
 								<Typography>Instagram</Typography>
-							</Link>
+							</a>
 						</ListItem>
 					</List>
 				</Grid>
