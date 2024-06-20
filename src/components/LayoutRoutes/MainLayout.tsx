@@ -7,7 +7,7 @@ import NavBar from '../NavBar';
 const MainLayout: React.FC = () => {
 	return (
 		<>
-			<NavBar positionAppBar="static" />
+			<NavBar positionAppBar="fixed" />
 			<main>
 				<Outlet />
 			</main>
