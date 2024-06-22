@@ -1,10 +1,13 @@
-import React from 'react';
+import homeOne from '../../../public/assets/homepage-banner-one.jpg';
+import homeTwo from '../../../public/assets/homepage-banner-two.jpg';
+import homeThree from '../../../public/assets/homepage-banner-three.jpg';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
-import Carousel from 'react-material-ui-carousel';
-
-import livierBanner from '../../../public/assets/home-banner.jpg';
-import basico from '../../../public/assets/basico.png';
-import livierBanner3 from '../../../public/assets/hire-banner.jpg';
+import React from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface Slide {
 	image: string;
@@ -17,51 +20,74 @@ const CarouselHome: React.FC = () => {
 
 	const slides: Slide[] = [
 		{
-			image: livierBanner,
+			image: homeOne,
+
 			text: 'Transformando ideias em realidades digitais com design profissional e inovação contínua',
 		},
-		{ image: basico, text: 'Outro texto de exemplo para o segundo slide' },
-		{ image: livierBanner3, text: 'Mais um texto para o terceiro slide' },
+		{
+			image: homeTwo,
+			text: 'Outro texto de exemplo para o segundo slide',
+		},
+		{
+			image: homeThree,
+			text: 'Mais um texto para o terceiro slide',
+		},
 	];
 
 	const renderSlides = () =>
 		slides.map((slide, index) => (
-			<Box
-				key={index}
-				sx={{
-					backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${slide.image})`,
-					backgroundRepeat: 'no-repeat',
-					backgroundSize: 'cover',
-					backgroundPosition: 'center',
-					height: isSmallScreen ? '400px' : '1000px',
-					width: '100%',
-					boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
-					position: 'relative',
-				}}
-			>
-				<Typography
-					variant="overline"
-					fontWeight={400}
+			<SwiperSlide key={index}>
+				<Box
 					sx={{
-						textAlign: 'center',
-						position: 'absolute',
-						fontSize: isSmallScreen ? '14px' : '30px',
-						top: '50%',
-						left: '50%',
-						transform: 'translate(-50%, -50%)',
-						color: '#e7f5ff',
-						padding: '10px',
+						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${slide.image})`,
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+						backgroundPosition: 'center',
+						height: isSmallScreen ? '400px' : '1000px',
+						width: '100%',
+						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
+						position: 'relative',
+						transition: 'opacity 1s ease-in-out',
+						opacity: 0.9,
+						'&:hover': {
+							opacity: 1,
+						},
 					}}
 				>
-					{slide.text}
-				</Typography>
-			</Box>
+					<Typography
+						variant="overline"
+						fontWeight={400}
+						sx={{
+							textAlign: 'center',
+							position: 'absolute',
+							fontSize: isSmallScreen ? '14px' : '30px',
+							top: '50%',
+							left: '50%',
+							transform: 'translate(-50%, -50%)',
+							color: '#e7f5ff',
+							padding: '10px',
+						}}
+					>
+						{slide.text}
+					</Typography>
+				</Box>
+			</SwiperSlide>
 		));
 
 	return (
-		<Carousel animation="slide" indicators autoPlay={true}>
-			{renderSlides()}
-		</Carousel>
+		<Box sx={{ width: '100%' }}>
+			<Swiper
+				modules={[Pagination, Navigation, Autoplay]}
+				pagination={{ clickable: true }}
+				navigation
+				autoplay={{ delay: 3000 }}
+				loop
+				spaceBetween={50}
+				slidesPerView={1}
+			>
+				{renderSlides()}
+			</Swiper>
+		</Box>
 	);
 };
 
