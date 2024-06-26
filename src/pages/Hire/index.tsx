@@ -5,6 +5,8 @@ import {
 	Grid,
 	Box,
 	Button,
+	useMediaQuery,
+	useTheme,
 } from '@mui/material';
 import React from 'react';
 
@@ -21,7 +23,7 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 	return (
 		<Card
 			sx={{
-				width: '380px',
+				width: '330px',
 				height: '380px',
 				margin: 'auto',
 				marginBottom: '20px',
@@ -94,6 +96,9 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 };
 
 const PricingPlans: React.FC = () => {
+	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<React.Fragment>
 			<Box sx={{ width: '100%' }}>
@@ -104,7 +109,7 @@ const PricingPlans: React.FC = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: { xs: '250px', sm: '400px', md: '1000px' },
+						height: isSmallScreen ? '400px' : '1000px',
 						width: '100%',
 						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
 						position: 'relative',
@@ -116,7 +121,7 @@ const PricingPlans: React.FC = () => {
 					sx={{
 						textAlign: 'center',
 						position: 'absolute',
-						fontSize: { xs: '12px', sm: '16px', md: '30px' },
+						fontSize: { xs: '14px', sm: '16px', md: '30px' },
 						top: { xs: '30%', md: '50%' },
 						left: { xs: '50%', md: '50%' },
 						padding: '10px',
@@ -128,12 +133,17 @@ const PricingPlans: React.FC = () => {
 					empresa
 				</Typography>
 				<Box marginTop={2}>
-					<Grid item xs={12} style={{ textAlign: 'center' }}>
+					<Grid item xs={12} sx={{ textAlign: 'center' }}>
 						<Typography
-							fontSize="24px"
+							sx={{
+								fontSize: {
+									xs: '18px',
+									sm: '20px',
+									md: '24px',
+								},
+							}}
 							variant="overline"
 							fontWeight={300}
-							color={'black'}
 						>
 							Planos acessíveis e que se encaixam perfeitamente no
 							seu orçamento

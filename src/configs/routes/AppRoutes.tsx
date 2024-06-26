@@ -2,8 +2,8 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from '../../components/LayoutRoutes/MainLayout';
+import ScrollToTop from '../../components/ScrollToTop';
 
-// Usando lazy para carregamento preguiçoso das páginas
 const Home = lazy(() => import('../../pages/Home'));
 const Login = lazy(() => import('../../pages/Login'));
 const PricingPlans = lazy(() => import('../../pages/Hire'));
@@ -14,6 +14,7 @@ const PrivacyPolicy = lazy(() => import('../../pages/PrivacyPolicy'));
 const AppRoutes: React.FC = () => {
 	return (
 		<BrowserRouter>
+			<ScrollToTop />
 			<Suspense fallback={<div>Loading...</div>}>
 				<Routes>
 					<Route path="/" element={<MainLayout />}>

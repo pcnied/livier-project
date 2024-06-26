@@ -1,6 +1,3 @@
-import homeOne from '../../../public/assets/homepage-banner-one.jpg';
-import homeTwo from '../../../public/assets/homepage-banner-two.jpg';
-import homeThree from '../../../public/assets/homepage-banner-three.jpg';
 import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import 'swiper/css';
@@ -8,6 +5,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import homeOne from '../../../public/assets/homepage-banner-one.jpg';
+import homeThree from '../../../public/assets/homepage-banner-three.jpg';
+import homeTwo from '../../../public/assets/homepage-banner-two.jpg';
 
 interface Slide {
 	image: string;
@@ -22,15 +23,15 @@ const CarouselHome: React.FC = () => {
 		{
 			image: homeOne,
 
-			text: 'Transformando ideias em realidades digitais com design profissional e inovação contínua',
+			text: 'Nossa missão é impulsionar seus objetivos',
 		},
 		{
 			image: homeTwo,
-			text: 'Outro texto de exemplo para o segundo slide',
+			text: 'Transformando sua presença online com marketing digital',
 		},
 		{
 			image: homeThree,
-			text: 'Mais um texto para o terceiro slide',
+			text: 'Buscando evolução contínua',
 		},
 	];
 

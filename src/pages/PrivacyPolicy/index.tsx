@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
 					flexDirection={'column'}
 					alignItems={'initial'}
 				>
-					<Container maxWidth="md" sx={{ marginTop: '20px' }}>
+					<Container maxWidth="md" sx={{ marginTop: '130px' }}>
 						<Typography variant="h4" gutterBottom>
 							Política de Privacidade
 						</Typography>
@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
 						<Typography paragraph>
 							Se você tiver alguma dúvida sobre esta Política de
 							Privacidade, entre em contato conosco pelo e-mail:
-							liviermkt@gmail.com.
+							contato@liviermkt.com.br.
 						</Typography>
 					</Container>
 				</Grid>

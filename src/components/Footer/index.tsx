@@ -9,10 +9,10 @@ import { Link } from 'react-router-dom';
 
 const linksContact = [
 	{
-		title: '(83) 9142-9201',
+		title: '(83) 9.9142-9201',
 	},
 	{
-		title: 'liviermkt@gmail.com',
+		title: 'contato@liviermkt.com.br',
 	},
 ];
 

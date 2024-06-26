@@ -22,7 +22,7 @@ const CardHomeCompact: React.FC = () => {
 				</Grid>
 				<Grid item xs={12} sm={5} md={5}>
 					<CardHome
-						title="Desing Gráfico"
+						title="Design Gráfico"
 						description="Identidade Visual, Layouts, Ilustrações, Materiais Publicitários"
 						imageUrl={desingImage}
 					/>

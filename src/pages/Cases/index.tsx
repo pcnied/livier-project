@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 
 import basico from '../../../public/assets/basico.png';
@@ -13,9 +13,12 @@ import Presentation from '../../components/Presentation';
 
 const Cases = () => {
 	document.title = 'Cases | Livier';
+	const theme = useTheme();
+	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
 	return (
 		<React.Fragment>
-			<Box sx={{ width: '100%' }}>
+			<Box sx={{ width: '100%', marginTop: 6 }}>
 				<Box
 					component="div"
 					sx={{
@@ -23,7 +26,7 @@ const Cases = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: { xs: '250px', sm: '400px', md: '1000px' },
+						height: isSmallScreen ? '400px' : '1000px',
 						width: '100%',
 						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
 						position: 'relative',
@@ -35,7 +38,7 @@ const Cases = () => {
 					sx={{
 						textAlign: 'center',
 						position: 'absolute',
-						fontSize: { xs: '12px', sm: '16px', md: '30px' },
+						fontSize: { xs: '14px', sm: '16px', md: '30px' },
 						top: { xs: '30%', md: '50%' },
 						left: { xs: '50%', md: '50%' },
 						padding: '10px',
@@ -46,15 +49,22 @@ const Cases = () => {
 					Alguns de nossos principais Projetos
 				</Typography>
 			</Box>
-			<Box display={'flex'} justifyContent={'center'}>
-				<Typography
-					variant="overline"
-					fontSize="30px"
-					textAlign={'center'}
-					fontWeight={400}
-				>
-					Web Design (E-commerces)
-				</Typography>
+			<Box marginTop={2}>
+				<Grid item xs={12} sx={{ textAlign: 'center' }}>
+					<Typography
+						sx={{
+							fontSize: {
+								xs: '18px',
+								sm: '20px',
+								md: '24px',
+							},
+						}}
+						variant="overline"
+						fontWeight={300}
+					>
+						Web Design (E-commerces)
+					</Typography>
+				</Grid>
 			</Box>
 			<Grid>
 				<Presentation

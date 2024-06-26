@@ -52,6 +52,10 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 	anchorCategoryDrawer,
 	setAnchorCategoryDrawer,
 }) => {
+	const handleLinkClick = () => {
+		setAnchorCategoryDrawer({ left: false });
+	};
+
 	return (
 		<Drawer
 			anchor="left"
@@ -65,15 +69,13 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 		>
 			<Grid container direction="column" spacing={2} padding={2}>
 				<Grid item container justifyContent="flex-end">
-					<IconButton
-						onClick={() => setAnchorCategoryDrawer({ left: false })}
-					>
+					<IconButton onClick={handleLinkClick}>
 						<CloseOutlined />
 					</IconButton>
 				</Grid>
 				<Grid item>
 					<Box display="flex" justifyContent="center">
-						<RouterLink to="/">
+						<RouterLink to="/" onClick={handleLinkClick}>
 							<img
 								src={logoLivier}
 								alt="Logo Livier"
@@ -92,6 +94,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 										color: category.color,
 										textDecoration: 'none',
 									}}
+									onClick={handleLinkClick}
 								>
 									<Typography variant="overline">
 										{category.name}
