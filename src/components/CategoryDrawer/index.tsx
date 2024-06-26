@@ -87,12 +87,13 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 				<Grid item>
 					<List>
 						{categoryList.map((category) => (
-							<ListItem key={category.name}>
+							<ListItem key={category.name} button>
 								<RouterLink
 									to={category.link}
 									style={{
 										color: category.color,
 										textDecoration: 'none',
+										width: '100%',
 									}}
 									onClick={handleLinkClick}
 								>
@@ -105,7 +106,7 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 					</List>
 					<Divider />
 					<List>
-						<ListItem>
+						<ListItem button>
 							<a
 								href="https://wa.me/5583991429201"
 								target="_blank"
@@ -115,13 +116,15 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 									display: 'flex',
 									alignItems: 'center',
 									color: '#000',
+									width: '100%',  // Ensure the click area covers the whole list item
 								}}
+								onClick={handleLinkClick}
 							>
 								<WhatsApp style={{ marginRight: '8px' }} />
 								<Typography>WhatsApp</Typography>
 							</a>
 						</ListItem>
-						<ListItem>
+						<ListItem button>
 							<a
 								href="https://www.instagram.com/liviermkt/"
 								target="_blank"
@@ -131,7 +134,9 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 									display: 'flex',
 									alignItems: 'center',
 									color: '#000',
+									width: '100%',
 								}}
+								onClick={handleLinkClick}
 							>
 								<Instagram style={{ marginRight: '8px' }} />
 								<Typography>Instagram</Typography>
