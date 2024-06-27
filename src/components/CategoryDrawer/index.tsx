@@ -11,6 +11,7 @@ import {
 	Link,
 } from '@mui/material';
 import React from 'react';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 
 import logoLivier from '../../../public/assets/logo-livier.png';
 
@@ -52,6 +53,13 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 	anchorCategoryDrawer,
 	setAnchorCategoryDrawer,
 }) => {
+	const navigate = useNavigate();
+
+	const handleLinkClick = (link: string) => {
+		setAnchorCategoryDrawer({ left: false });
+		setTimeout(() => navigate(link), 300);
+	};
+
 	return (
 		<div>
 			<React.Fragment key={'left'}>
@@ -80,7 +88,12 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 								display="flex"
 								justifyContent="flex-start"
 							>
-								<Link href={'/'} sx={{ height: '100px' }}>
+								<Link
+									component={RouterLink}
+									to={'/'}
+									sx={{ height: '100px' }}
+									onClick={() => handleLinkClick('/')}
+								>
 									<Box
 										component={'img'}
 										src={logoLivier}
@@ -100,12 +113,18 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 									{categoryList.map((category) => (
 										<ListItem key={category.name}>
 											<Link
-												href={category.link}
+												component={RouterLink}
+												to={category.link}
 												sx={{
 													color: category.color,
 													textDecoration: 'none',
 													width: '100%',
 												}}
+												onClick={() =>
+													handleLinkClick(
+														category.link,
+													)
+												}
 											>
 												<Typography variant="overline">
 													{category.name}

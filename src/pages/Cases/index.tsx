@@ -8,7 +8,7 @@ import petCoast from '../../../public/assets/petcoast.png';
 import socialOne from '../../../public/assets/socialone.jpeg';
 import socialThree from '../../../public/assets/socialthree.jpeg';
 import socialTwo from '../../../public/assets/socialtwo.jpeg';
-import ImagesRow from '../../components/ImagesCases';
+import ImagesCases from '../../components/ImagesCases';
 import Presentation from '../../components/Presentation';
 
 const Cases = () => {
@@ -93,7 +93,7 @@ const Cases = () => {
 					</Typography>
 				</Box>
 
-				<ImagesRow images={[socialOne, socialTwo, socialThree]} />
+				<ImagesCases images={[socialOne, socialTwo, socialThree]} />
 			</Grid>
 		</React.Fragment>
 	);

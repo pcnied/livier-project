@@ -1,5 +1,31 @@
-import { Typography, Box, Grow } from '@mui/material';
+import { Typography, Box, Grow, Link } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
+
+const useVisibility = (offset = 0.5) => {
+	const [isVisible, setIsVisible] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (ref.current) {
+				const top = ref.current.getBoundingClientRect().top;
+				const windowHeight = window.innerHeight;
+				if (top < windowHeight * offset) {
+					setIsVisible(true);
+				}
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		handleScroll();
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [offset]);
+
+	return { ref, isVisible };
+};
 
 interface PresentationProps {
 	title?: string;
@@ -12,47 +38,43 @@ const Presentation: React.FC<PresentationProps> = ({
 	imageUrl,
 	siteUrl,
 }) => {
-	const [isVisible, setIsVisible] = useState(false);
-	const ref = useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (ref.current) {
-				const top = ref.current.getBoundingClientRect().top;
-				const windowHeight = window.innerHeight;
-				setIsVisible(top < windowHeight * 0.5);
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll);
-		handleScroll();
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
+	const { ref, isVisible } = useVisibility();
 
 	return (
-		<div>
+		<Box textAlign="center" marginY={2}>
 			<Grow in={isVisible} timeout={1600}>
-				<Box ref={ref} textAlign="center">
-					<Typography fontSize={'32px'} mb={1} mt={1} gutterBottom>
-						{title}
-					</Typography>
-					<Typography fontSize={'20px'} mb={2}>
-						{siteUrl}
-					</Typography>
-					<img
+				<Box ref={ref}>
+					{title && (
+						<Typography variant="h4" component="h2" gutterBottom>
+							{title}
+						</Typography>
+					)}
+					{siteUrl && (
+						<Typography variant="h6" component="p" gutterBottom>
+							<Link
+								href={siteUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								sx={{ textDecoration: 'none' }}
+							>
+								{siteUrl}
+							</Link>
+						</Typography>
+					)}
+					<Box
+						component="img"
 						src={imageUrl}
-						alt="Presentation"
-						style={{
+						alt={title || 'Presentation Image'}
+						sx={{
 							maxWidth: '100%',
 							height: 'auto',
+							borderRadius: '8px',
+							boxShadow: 3,
 						}}
 					/>
 				</Box>
 			</Grow>
-		</div>
+		</Box>
 	);
 };
 
