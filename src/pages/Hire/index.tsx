@@ -121,7 +121,7 @@ const PricingPlans: React.FC = () => {
 					sx={{
 						textAlign: 'center',
 						position: 'absolute',
-						fontSize: { xs: '14px', sm: '16px', md: '30px' },
+						fontSize: isSmallScreen ? '14px' : '30px',
 						top: { xs: '30%', md: '50%' },
 						left: { xs: '50%', md: '50%' },
 						padding: '10px',

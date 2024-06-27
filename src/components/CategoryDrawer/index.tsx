@@ -8,9 +8,9 @@ import {
 	ListItem,
 	Typography,
 	Divider,
+	Link,
 } from '@mui/material';
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 
 import logoLivier from '../../../public/assets/logo-livier.png';
 
@@ -52,100 +52,121 @@ const CategoryDrawer: React.FC<CategoryDrawerProps> = ({
 	anchorCategoryDrawer,
 	setAnchorCategoryDrawer,
 }) => {
-	const handleLinkClick = () => {
-		setAnchorCategoryDrawer({ left: false });
-	};
-
 	return (
-		<Drawer
-			anchor="left"
-			open={anchorCategoryDrawer.left}
-			onClose={() => setAnchorCategoryDrawer({ left: false })}
-			sx={{
-				'.MuiDrawer-paperAnchorLeft': {
-					minWidth: '100%',
-				},
-			}}
-		>
-			<Grid container direction="column" spacing={2} padding={2}>
-				<Grid item container justifyContent="flex-end">
-					<IconButton onClick={handleLinkClick}>
-						<CloseOutlined />
-					</IconButton>
-				</Grid>
-				<Grid item>
-					<Box display="flex" justifyContent="center">
-						<RouterLink to="/" onClick={handleLinkClick}>
-							<img
-								src={logoLivier}
-								alt="Logo Livier"
-								style={{ height: '100px' }}
-							/>
-						</RouterLink>
-					</Box>
-				</Grid>
-				<Grid item>
-					<List>
-						{categoryList.map((category) => (
-							<ListItem key={category.name} button>
-								<RouterLink
-									to={category.link}
-									style={{
-										color: category.color,
-										textDecoration: 'none',
+		<div>
+			<React.Fragment key={'left'}>
+				<Drawer
+					anchor={'left'}
+					open={anchorCategoryDrawer['left']}
+					sx={{
+						'.MuiDrawer-paperAnchorLeft': {
+							minWidth: '100%',
+						},
+					}}
+				>
+					<Grid container spacing={2} padding={2}>
+						<Grid item xs={12}>
+							<IconButton
+								onClick={() =>
+									setAnchorCategoryDrawer({ left: false })
+								}
+							>
+								<CloseOutlined />
+							</IconButton>
+						</Grid>
+						<Grid item xs={12}>
+							<Box
+								width={'100%'}
+								display="flex"
+								justifyContent="flex-start"
+							>
+								<Link href={'/'} sx={{ height: '100px' }}>
+									<Box
+										component={'img'}
+										src={logoLivier}
+										style={{ height: '100px' }}
+									/>
+								</Link>
+							</Box>
+						</Grid>
+						<Grid item xs={12}>
+							<Box
+								display={'flex'}
+								flexDirection={'column'}
+								alignItems={'flex-start'}
+								justifyContent={'flex-start'}
+							>
+								<List>
+									{categoryList.map((category) => (
+										<ListItem key={category.name}>
+											<Link
+												href={category.link}
+												sx={{
+													color: category.color,
+													textDecoration: 'none',
+													width: '100%',
+												}}
+											>
+												<Typography variant="overline">
+													{category.name}
+												</Typography>
+											</Link>
+										</ListItem>
+									))}
+								</List>
+								<Divider
+									sx={{
+										marginTop: 'auto',
 										width: '100%',
+										backgroundColor: 'rgba(0, 0, 0, 0.12)',
 									}}
-									onClick={handleLinkClick}
-								>
-									<Typography variant="overline">
-										{category.name}
-									</Typography>
-								</RouterLink>
-							</ListItem>
-						))}
-					</List>
-					<Divider />
-					<List>
-						<ListItem button>
-							<a
-								href="https://wa.me/5583991429201"
-								target="_blank"
-								rel="noopener noreferrer"
-								style={{
-									textDecoration: 'none',
-									display: 'flex',
-									alignItems: 'center',
-									color: '#000',
-									width: '100%',  // Ensure the click area covers the whole list item
-								}}
-								onClick={handleLinkClick}
-							>
-								<WhatsApp style={{ marginRight: '8px' }} />
-								<Typography>WhatsApp</Typography>
-							</a>
-						</ListItem>
-						<ListItem button>
-							<a
-								href="https://www.instagram.com/liviermkt/"
-								target="_blank"
-								rel="noopener noreferrer"
-								style={{
-									textDecoration: 'none',
-									display: 'flex',
-									alignItems: 'center',
-									color: '#000',
-									width: '100%',
-								}}
-								onClick={handleLinkClick}
-							>
-								<Instagram style={{ marginRight: '8px' }} />
-								<Typography>Instagram</Typography>
-							</a>
-						</ListItem>
-					</List>
-				</Grid>
-			</Grid>
-		</Drawer>
+								/>
+								<List>
+									<ListItem>
+										<Link
+											href="https://wa.me/5583991429201"
+											target="_blank"
+											rel="noopener noreferrer"
+											style={{
+												textDecoration: 'none',
+												display: 'flex',
+												alignItems: 'center',
+												color: '#000',
+												width: '100%',
+											}}
+										>
+											<WhatsApp
+												style={{ marginRight: '8px' }}
+											/>
+											<Typography>WhatsApp</Typography>
+										</Link>
+									</ListItem>
+									<ListItem>
+										<Link
+											href="https://www.instagram.com/liviermkt/"
+											target="_blank"
+											rel="noopener noreferrer"
+											style={{
+												textDecoration: 'none',
+												display: 'flex',
+												alignItems: 'center',
+												color: '#000',
+												width: '100%',
+											}}
+										>
+											<Instagram
+												style={{ marginRight: '8px' }}
+											/>
+											<Typography>Instagram</Typography>
+										</Link>
+									</ListItem>
+								</List>
+							</Box>
+						</Grid>
+					</Grid>
+				</Drawer>
+			</React.Fragment>
+		</div>
 	);
 };
 
