@@ -7,12 +7,10 @@ import theme from './configs/themes';
 import { store } from './store';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-	// <React.StrictMode>
 	<Provider store={store}>
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<App />
 		</ThemeProvider>
 	</Provider>,
-	// </React.StrictMode>
 );

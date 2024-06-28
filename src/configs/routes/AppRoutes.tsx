@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from '../../components/LayoutRoutes/MainLayout';
+import Loading from '../../components/LoadingRoutes';
 import ScrollToTop from '../../components/ScrollToTop';
 
 const Home = lazy(() => import('../../pages/Home'));
@@ -15,7 +16,7 @@ const AppRoutes: React.FC = () => {
 	return (
 		<BrowserRouter>
 			<ScrollToTop />
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<Loading message="Carregando..." />}>
 				<Routes>
 					<Route path="/" element={<MainLayout />}>
 						<Route index element={<Home />} />
