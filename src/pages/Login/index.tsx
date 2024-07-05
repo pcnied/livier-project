@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import FormLogin from '../../components/FormLogin';
 import NavBar from '../../components/NavBar';
 
-const Login = () => {
+const LoginPage = () => {
 	return (
 		<React.Fragment>
 			<NavBar positionAppBar="fixed" />
@@ -14,4 +14,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default LoginPage;

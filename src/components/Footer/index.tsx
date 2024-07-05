@@ -51,7 +51,7 @@ const linksSocialMedia = [
 	},
 ];
 
-const MyFooter = () => {
+const Footer = () => {
 	return (
 		<Box component={'footer'} sx={{ width: '100%', bgcolor: '#03141e' }}>
 			<Grid
@@ -201,4 +201,4 @@ const MyFooter = () => {
 	);
 };
 
-export default MyFooter;
+export default Footer;

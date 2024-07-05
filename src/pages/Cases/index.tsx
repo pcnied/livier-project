@@ -8,16 +8,17 @@ import petCoast from '../../../public/assets/petcoast.png';
 import socialOne from '../../../public/assets/socialone.jpeg';
 import socialThree from '../../../public/assets/socialthree.jpeg';
 import socialTwo from '../../../public/assets/socialtwo.jpeg';
+import Container from '../../components/Container';
 import ImagesCases from '../../components/ImagesCases';
 import Presentation from '../../components/Presentation';
 
-const Cases = () => {
+const CasesPage = () => {
 	document.title = 'Cases | Livier';
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
 	return (
-		<React.Fragment>
+		<Container>
 			<Box sx={{ width: '100%', marginTop: 6 }}>
 				<Box
 					component="div"
@@ -26,28 +27,29 @@ const Cases = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: isSmallScreen ? '400px' : '1000px',
+						height: isSmallScreen ? '400px' : '700px',
 						width: '100%',
 						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
 						position: 'relative',
 					}}
-				/>
-				<Typography
-					variant="overline"
-					fontWeight={400}
-					sx={{
-						textAlign: 'center',
-						position: 'absolute',
-						fontSize: isSmallScreen ? '14px' : '30px',
-						top: { xs: '30%', md: '50%' },
-						left: { xs: '50%', md: '50%' },
-						padding: '10px',
-						color: '#e7f5ff',
-						transform: 'translate(-50%, -50%)',
-					}}
 				>
-					Alguns de nossos principais Projetos
-				</Typography>
+					<Typography
+						sx={{
+							textAlign: 'center',
+							position: 'absolute',
+							fontSize: isSmallScreen ? '20px' : '24px',
+							textTransform: 'uppercase',
+							bottom: '10px',
+							left: '50%',
+							transform: 'translate(-50%, -50%)',
+							color: '#eeeeee',
+							fontWeight: '200',
+							fontStyle: 'italic',
+						}}
+					>
+						Alguns de nossos principais Projetos
+					</Typography>
+				</Box>
 			</Box>
 			<Box marginTop={2}>
 				<Grid item xs={12} sx={{ textAlign: 'center' }}>
@@ -95,8 +97,8 @@ const Cases = () => {
 
 				<ImagesCases images={[socialOne, socialTwo, socialThree]} />
 			</Grid>
-		</React.Fragment>
+		</Container>
 	);
 };
 
-export default Cases;
+export default CasesPage;

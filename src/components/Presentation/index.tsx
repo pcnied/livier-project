@@ -1,7 +1,7 @@
 import { Typography, Box, Grow, Link } from '@mui/material';
 import React, { useState, useEffect, useRef } from 'react';
 
-const useVisibility = (offset = 0.5) => {
+const useVisibility = (offset = 0.7) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const ref = useRef<HTMLDivElement>(null);
 
@@ -42,7 +42,7 @@ const Presentation: React.FC<PresentationProps> = ({
 
 	return (
 		<Box textAlign="center" marginY={2}>
-			<Grow in={isVisible} timeout={1600}>
+			<Grow in={isVisible} timeout={1400}>
 				<Box ref={ref}>
 					{title && (
 						<Typography variant="h4" component="h2" gutterBottom>

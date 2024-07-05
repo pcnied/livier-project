@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
 
-import logoLivier from '../../../public/assets/banners/logo-livier.png';
+import logoLivier from '../../../public/assets/logo-livier.png';
 
 interface NavBarProps {
 	positionAppBar:
@@ -17,7 +17,6 @@ interface NavBarProps {
 }
 
 const NavBarLogo: React.FC<NavBarProps> = ({ positionAppBar }) => {
-
 	return (
 		<React.Fragment>
 			<Box>

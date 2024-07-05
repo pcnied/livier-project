@@ -1,15 +1,15 @@
 import { Box, Divider, Grid, Typography } from '@mui/material';
-import React from 'react';
 
 import CardCategories from '../../components/CardCategories';
 import CardHomeCompact from '../../components/CardHomeCompact';
 import CarouselHome from '../../components/CarouselHome';
+import Container from '../../components/Container';
 
-const Home = () => {
+const HomePage = () => {
 	document.title = 'Home | Livier';
 
 	return (
-		<React.Fragment>
+		<Container>
 			<Box sx={{ width: '100%', marginTop: 6 }}>
 				<CarouselHome />
 				<Box marginTop={2}>
@@ -59,8 +59,8 @@ const Home = () => {
 					</Grid>
 				</Grid>
 			</Box>
-		</React.Fragment>
+		</Container>
 	);
 };
 
-export default Home;
+export default HomePage;

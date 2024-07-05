@@ -31,7 +31,7 @@ const CarouselHome: React.FC = () => {
 		},
 		{
 			image: homeThree,
-			text: 'Buscando evolução contínua',
+			text: 'Buscando evolução contínua com tecnlogia e criatividade',
 		},
 	];
 
@@ -44,7 +44,7 @@ const CarouselHome: React.FC = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: isSmallScreen ? '400px' : '1000px',
+						height: isSmallScreen ? '400px' : '700px',
 						width: '100%',
 						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
 						position: 'relative',
@@ -61,12 +61,14 @@ const CarouselHome: React.FC = () => {
 						sx={{
 							textAlign: 'center',
 							position: 'absolute',
-							fontSize: isSmallScreen ? '14px' : '30px',
-							top: '50%',
+							fontSize: isSmallScreen ? '20px' : '24px',
+							textTransform: 'uppercase',
+							bottom: '10px',
 							left: '50%',
 							transform: 'translate(-50%, -50%)',
-							color: '#e7f5ff',
-							padding: '10px',
+							color: '#eeeeee',
+							fontWeight: '200',
+							fontStyle: 'italic',
 						}}
 					>
 						{slide.text}

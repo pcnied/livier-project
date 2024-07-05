@@ -1,11 +1,12 @@
-import { Container, Divider, Grid, Typography } from '@mui/material';
-import React from 'react';
+import { Divider, Grid, Typography } from '@mui/material';
 
-const PrivacyPolicy = () => {
+import Container from '../../components/Container';
+
+const PrivacyPolicyPage = () => {
 	document.title = 'Política de Privacidade | Livier';
 
 	return (
-		<React.Fragment>
+		<Container>
 			<Grid
 				container
 				sx={{
@@ -20,7 +21,7 @@ const PrivacyPolicy = () => {
 					flexDirection={'column'}
 					alignItems={'initial'}
 				>
-					<Container maxWidth="md" sx={{ marginTop: '130px' }}>
+					<Grid maxWidth="md" sx={{ marginTop: '130px' }}>
 						<Typography variant="h4" gutterBottom>
 							Política de Privacidade
 						</Typography>
@@ -83,11 +84,11 @@ const PrivacyPolicy = () => {
 							Privacidade, entre em contato conosco pelo e-mail:
 							contato@liviermkt.com.br.
 						</Typography>
-					</Container>
+					</Grid>
 				</Grid>
 			</Grid>
-		</React.Fragment>
+		</Container>
 	);
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicyPage;
