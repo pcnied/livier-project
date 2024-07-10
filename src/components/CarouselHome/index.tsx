@@ -31,7 +31,7 @@ const CarouselHome: React.FC = () => {
 		},
 		{
 			image: homeThree,
-			text: 'Buscando evolução contínua com tecnlogia e criatividade',
+			text: 'Buscando evolução contínua com tecnlogia',
 		},
 	];
 
@@ -61,9 +61,9 @@ const CarouselHome: React.FC = () => {
 						sx={{
 							textAlign: 'center',
 							position: 'absolute',
-							fontSize: isSmallScreen ? '20px' : '24px',
+							fontSize: isSmallScreen ? '16px' : '24px',
 							textTransform: 'uppercase',
-							bottom: '10px',
+							bottom: '8px',
 							left: '50%',
 							transform: 'translate(-50%, -50%)',
 							color: '#eeeeee',
