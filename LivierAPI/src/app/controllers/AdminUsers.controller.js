@@ -32,7 +32,6 @@ class AdminUsersController {
                 mail,
                 password,
                 name,
-                photoString
             );
     
             if (isInvalid) {
@@ -48,7 +47,6 @@ class AdminUsersController {
                 mail,
                 password,
                 name,
-                profilePhoto: photoString
             });
     
             return res.status(200).json(updatedUser);

@@ -12,20 +12,18 @@ class AdminUsersService {
         return user;
     }
 
-    async createUser(mail, password, name, photoString) {
+    async createUser(mail, password, name) {
         try {
             const userAlreadyExist = await this.findUserByMail(mail);
             if (userAlreadyExist) {
                 throw new AppError(409, "Email já cadastrado!");
             }
 
-            const profilePhoto = photoString;
 
             await AdminUsers.create({
                 mail,
                 password,
                 name,
-                profilePhoto
             });
 
             return "Usuário Admin criado com sucesso";
