@@ -37,7 +37,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 			<Box sx={{ flexGrow: 1 }}>
 				<AppBar
 					position={positionAppBar}
-					sx={{ bgcolor: '#e7f5ff', boxShadow: 'none' }}
+					sx={{ bgcolor: 'transparent', boxShadow: 'none' }}
 				>
 					<Toolbar sx={{ padding: '3px 15px' }}>
 						<IconButton

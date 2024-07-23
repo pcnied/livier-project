@@ -6,12 +6,12 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import homeOne from '../../../public/assets/homepage-banner-one.jpg';
-import homeThree from '../../../public/assets/homepage-banner-three.jpg';
-import homeTwo from '../../../public/assets/homepage-banner-two.jpg';
+import homeOne from '../../../public/assets/goals.mp4';
+import homeTwo from '../../../public/assets/marketing.mp4';
+import homeThree from '../../../public/assets/development.mp4';
 
 interface Slide {
-	image: string;
+	video: string;
 	text: string;
 }
 
@@ -21,60 +21,57 @@ const CarouselHome: React.FC = () => {
 
 	const slides: Slide[] = [
 		{
-			image: homeOne,
+			video: homeOne,
 
 			text: 'Nossa missão é impulsionar seus objetivos',
 		},
 		{
-			image: homeTwo,
+			video: homeTwo,
 			text: 'Transformando sua presença online com marketing digital',
 		},
 		{
-			image: homeThree,
-			text: 'Buscando evolução contínua com tecnlogia',
+			video: homeThree,
+			text: 'Buscando evolução contínua com tecnologia',
 		},
 	];
 
 	const renderSlides = () =>
 		slides.map((slide, index) => (
-			<SwiperSlide key={index}>
-				<Box
-					sx={{
-						backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), url(${slide.image})`,
-						backgroundRepeat: 'no-repeat',
-						backgroundSize: 'cover',
-						backgroundPosition: 'center',
-						height: isSmallScreen ? '400px' : '700px',
-						width: '100%',
-						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
-						position: 'relative',
-						transition: 'opacity 1s ease-in-out',
-						opacity: 0.9,
-						'&:hover': {
-							opacity: 1,
-						},
-					}}
-				>
-					<Typography
-						variant="overline"
-						fontWeight={400}
-						sx={{
-							textAlign: 'center',
-							position: 'absolute',
-							fontSize: isSmallScreen ? '16px' : '24px',
-							textTransform: 'uppercase',
-							bottom: '8px',
-							left: '50%',
-							transform: 'translate(-50%, -50%)',
-							color: '#eeeeee',
-							fontWeight: '200',
-							fontStyle: 'italic',
-						}}
-					>
-						{slide.text}
-					</Typography>
-				</Box>
-			</SwiperSlide>
+		  <SwiperSlide key={index}>
+			<video
+			  width="100%"
+			  autoPlay
+			  loop
+			  muted
+			  playsInline
+			  style={{ objectFit: 'cover', height: isSmallScreen ? '400px' : '500px' }}
+			>
+			  <source src={slide.video} type="video/mp4" />
+			  Your browser does not support the video tag.
+			</video>
+			<Typography
+			  variant="overline"
+			  fontWeight={400}
+			  sx={{
+				textAlign: 'center',
+				position: 'absolute',
+				fontSize: isSmallScreen ? '16px' : '40px',
+				textTransform: 'uppercase',
+				bottom: '8px',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				color: '#eeeeee',
+				fontWeight: '500',
+				fontStyle: 'normal',
+				textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
+				lineHeight: 2.0,
+				width: 'calc(100% - 32px)',
+				zIndex: 10, // Garante que o texto fique acima do vídeo
+			  }}
+			>
+			  {slide.text}
+			</Typography>
+		  </SwiperSlide>
 		));
 
 	return (
