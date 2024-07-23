@@ -77,8 +77,9 @@ const CardCategories: React.FC = () => {
 			<Grid
 				container
 				sx={{ marginX: '0', padding: '16px' }}
-				justifyContent={'center'}
-				alignItems={'center'}
+				justifyContent="center"
+				alignItems="center"
+				spacing={2}
 			>
 				{cardData.map((card, index) => (
 					<Grid

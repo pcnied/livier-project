@@ -37,7 +37,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 			<Box sx={{ flexGrow: 1 }}>
 				<AppBar
 					position={positionAppBar}
-					sx={{ bgcolor: '#e7f5ff', boxShadow: 'none' }}
+					sx={{ bgcolor: '#ffffff', boxShadow: 'none' }}
 				>
 					<Toolbar sx={{ padding: '3px 15px' }}>
 						<IconButton
@@ -56,7 +56,7 @@ const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
 								component={'img'}
 								src={logoLivier}
 								sx={{
-									height: '120px',
+									height: '100px',
 									width: 'auto',
 									display: 'flex',
 									justifyContent: 'center',
