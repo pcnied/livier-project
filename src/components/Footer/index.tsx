@@ -54,7 +54,7 @@ const Footer = () => {
 				sx={{
 					margin: '0',
 					background: '#03141e',
-					padding: '20px 10px',
+					padding: '30px 15px',
 				}}
 				justifyContent={'center'}
 				gap={2}
