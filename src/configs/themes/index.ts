@@ -11,7 +11,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
-		fontFamily: ['League Spartan', '-apple-system'].join(','),
+		fontFamily: ['Lato', '-apple-system'].join(','),
 	},
 });
 
