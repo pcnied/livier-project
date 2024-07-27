@@ -4,8 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
 
-import logoLivier from '../../../public/assets/logo-livier.png';
-
 interface NavBarProps {
 	positionAppBar:
 		| 'fixed'
@@ -31,11 +29,7 @@ const NavBarLogo: React.FC<NavBarProps> = ({ positionAppBar }) => {
 								justifyContent: 'center',
 							}}
 						>
-							<Box
-								component={'img'}
-								src={logoLivier}
-								sx={{ height: '100%' }}
-							/>
+							<Box component={'img'} sx={{ height: '100%' }} />
 						</Link>
 					</Toolbar>
 				</AppBar>

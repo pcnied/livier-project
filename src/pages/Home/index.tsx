@@ -10,7 +10,7 @@ const HomePage = () => {
 
 	return (
 		<Container>
-			<Box sx={{ width: '100%', marginTop: 6 }}>
+			<Box sx={{ width: '100%' }}>
 				<CarouselHome />
 				<Box marginTop={2}>
 					<Grid

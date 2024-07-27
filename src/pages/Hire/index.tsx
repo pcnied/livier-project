@@ -3,7 +3,7 @@ import PricingPlans from '../../components/PricingPlans';
 
 const HirePage: React.FC = () => {
 	return (
-		<Container>
+		<Container cardIcon={true}>
 			<PricingPlans />
 		</Container>
 	);

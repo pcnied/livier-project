@@ -1,7 +1,9 @@
+import React from 'react';
 import { Button, styled } from '@mui/material';
 
 interface CustomButtonProps {
 	name: string;
+	onClick?: () => void; // Adiciona a prop onClick
 }
 
 const StyledButton = styled(Button)(({ theme }) => ({
@@ -27,12 +29,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
 	},
 }));
 
-const CustomButton: React.FC<CustomButtonProps> = ({ name }) => {
-	const handleClick = () => {
-		window.open('https://wa.me/5531984360621', '_blank');
-	};
-
-	return <StyledButton onClick={handleClick}>{name}</StyledButton>;
+const CustomButton: React.FC<CustomButtonProps> = ({ name, onClick }) => {
+	return <StyledButton onClick={onClick}>{name}</StyledButton>;
 };
 
 export default CustomButton;

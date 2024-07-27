@@ -1,19 +1,11 @@
-import { Instagram, Menu as MenuIcon, WhatsApp } from '@mui/icons-material';
-import { Box, AppBar, Toolbar, IconButton, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Styles from './style.module.css';
 
-import logoLivier from '../../../public/assets/logo-livier.png';
-import CategoryDrawer from '../CategoryDrawer';
+import logoLivier from '../../../public/assets/logo_livier_tech-removebg.png';
 
 interface NavBarProps {
-	positionAppBar:
-		| 'fixed'
-		| 'absolute'
-		| 'relative'
-		| 'static'
-		| 'sticky'
-		| undefined;
+	positionAppBar?: 'fixed' | 'absolute' | 'relative' | 'static' | 'sticky';
 }
 
 const navLinks = [
@@ -23,119 +15,47 @@ const navLinks = [
 	{ name: 'Sobre Nós', link: '/about-us' },
 ];
 
-const NavBar: React.FC<NavBarProps> = ({ positionAppBar }) => {
-	const [anchorCategoryDrawer, setAnchorCategoryDrawer] = useState({
-		left: false,
-	});
+const NavBar: React.FC<NavBarProps> = ({ positionAppBar = 'fixed' }) => {
+	const [isNavBarAbsolute, setIsNavBarAbsolute] = useState(false);
 
-	const handleCategoryDrawerOpen = () => {
-		setAnchorCategoryDrawer({ left: true });
-	};
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 500) {
+				setIsNavBarAbsolute(true);
+			} else {
+				setIsNavBarAbsolute(false);
+			}
+		};
+
+		// Adiciona o listener do evento de scroll ao montar o componente
+		window.addEventListener('scroll', handleScroll);
+
+		// Remove o listener do evento de scroll ao desmontar o componente
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []); // A dependência vazia [] garante que o useEffect seja executado apenas uma vez
 
 	return (
-		<React.Fragment>
-			<Box sx={{ flexGrow: 1 }}>
-				<AppBar
-					position={positionAppBar}
-					sx={{ bgcolor: '#ffffff', boxShadow: 'none' }}
-				>
-					<Toolbar sx={{ padding: '3px 15px' }}>
-						<IconButton
-							size="large"
-							edge="start"
-							color="primary"
-							aria-label="open drawer"
-							sx={{ display: { md: 'none' } }}
-							onClick={handleCategoryDrawerOpen}
-						>
-							<MenuIcon />
-						</IconButton>
+		<header
+			className={`${Styles.header} ${
+				isNavBarAbsolute ? Styles.absolute + ' active' : ''
+			}`}
+		>
+			<img src={logoLivier} alt="Logo Livier" className={Styles.logo} />
 
-						<Link to={'/'} style={{ textDecoration: 'none' }}>
-							<Box
-								component={'img'}
-								src={logoLivier}
-								sx={{
-									height: '100px',
-									width: 'auto',
-									display: 'flex',
-									justifyContent: 'center',
-								}}
-							/>
-						</Link>
-
-						<Box
-							sx={{
-								marginX: '50px',
-								display: { xs: 'none', md: 'flex' },
-								height: '100%',
-								alignItems: 'center',
-							}}
-						>
-							{navLinks.map((link) => (
-								<Box
-									key={link.name}
-									sx={{
-										marginLeft: '20px',
-										transition: 'all 0.2s',
-										'&:hover': { color: '#3b3b3bd2' },
-									}}
-								>
-									<Link
-										to={link.link}
-										style={{
-											textDecoration: 'none',
-											color: '#0f4577',
-										}}
-									>
-										<Typography
-											component={'h4'}
-											variant="overline"
-											fontSize={'16px'}
-											noWrap
-										>
-											{link.name}
-										</Typography>
-									</Link>
-								</Box>
-							))}
-						</Box>
-
-						<Box sx={{ flexGrow: 1 }} />
-						<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-							<IconButton
-								size="large"
-								color="primary"
-								onClick={() =>
-									window.open(
-										'https://wa.me/5583991429201',
-										'_blank',
-									)
-								}
-							>
-								<WhatsApp />
-							</IconButton>
-							<IconButton
-								size="large"
-								color="primary"
-								onClick={() =>
-									window.open(
-										'https://www.instagram.com/liviermkt/',
-										'_blank',
-									)
-								}
-							>
-								<Instagram />
-							</IconButton>
-						</Box>
-					</Toolbar>
-				</AppBar>
-			</Box>
-			<CategoryDrawer
-				anchorCategoryDrawer={anchorCategoryDrawer}
-				setAnchorCategoryDrawer={setAnchorCategoryDrawer}
-			/>
-		</React.Fragment>
+			<div className={Styles.navLinks}>
+				{navLinks.map((link) => (
+					<Link
+						to={link.link}
+						key={link.name}
+						className={Styles.link}
+					>
+						{link.name}
+					</Link>
+				))}
+			</div>
+		</header>
 	);
 };
 
