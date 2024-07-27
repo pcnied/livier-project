@@ -33,7 +33,7 @@ const CasesPage = () => {
 
 	return (
 		<Container>
-			<Box sx={{ width: '100%', marginTop: 6 }}>
+			<Box sx={{ width: '100%' }}>
 				<Box
 					component="div"
 					sx={{
@@ -41,7 +41,7 @@ const CasesPage = () => {
 						backgroundRepeat: 'no-repeat',
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
-						height: isSmallScreen ? '400px' : '700px',
+						height: isSmallScreen ? '400px' : '500px',
 						width: '100%',
 						boxShadow: '0 0 20px rgba(0, 0, 0, 0.5)',
 						position: 'relative',

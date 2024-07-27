@@ -13,39 +13,26 @@ const InfoCard: React.FC<InfoCardProps> = ({
 	imageUrl,
 }) => {
 	return (
-		<Box sx={{ textAlign: 'center' }}>
-			<Card
-				sx={{
-					padding: '10px',
-					transition: 'transform 0.3s, box-shadow 0.3s',
-					'&:hover': {
-						transform: 'scale(1.05)',
-						boxShadow: 6,
-					},
-					bgcolor: '#0f4577',
-					display: 'flex',
-					alignItems: 'center',
-				}}
-			>
-				<CardContent>
-					<Box sx={{ display: 'flex', justifyContent: 'center' }}>
+		<Box sx={{ textAlign: 'left' }}>
+			
+					<Box sx={{ display: 'flex', justifyContent: 'left', marginBottom: '10px' }}>
 						<img
 							src={imageUrl}
-							style={{ width: '100px', height: '100px' }}
+							style={{ width: '70px' }}
 						/>
 					</Box>
-				</CardContent>
-			</Card>
 			<Typography
 				color={'black'}
 				variant="overline"
 				fontSize={'20px'}
 				gutterBottom
 				align="center"
+				fontWeight={600}
+				style={{ lineHeight: 1.2 }}
 			>
 				{title}
 			</Typography>
-			<Typography color={'black'} fontSize={'18px'} align="center">
+			<Typography color={'black'} fontSize={'18px'} align="left">
 				{description}
 			</Typography>
 		</Box>
