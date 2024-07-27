@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.header {
+    width: 100%;
+    padding: 0 5%;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Transições para top e opacity */
+    box-sizing: border-box;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    font-family: 'Roboto', sans-serif; /* Aplica a fonte Roboto */
+    font-weight: bold;
+}
+
+.header:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header:hover .link {
+    text-shadow: none;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.navLinks {
+    width: 80%;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5%;
+}
+
+.link {
+    text-decoration: none;
+    color: #FFFFFF; /* Cor do texto */
+    font-size: 1.25rem; /* Tamanho do texto */
+    font-weight: bold; /* Peso do texto */
+    text-shadow:
+        1px 1px 0.25px #0057F9,  /* Sombra à direita e abaixo do texto */
+        -1px -1px 0.25px #0057F9, /* Sombra à esquerda e acima do texto */
+        1px -1px 0.25px #0057F9,  /* Sombra à direita e acima do texto */
+        -1px 1px 0.25px #0057F9,  /* Sombra à esquerda e abaixo do texto */
+        0 0 1.5px #0057F9;      /* Sombra com desfoque para criar uma borda mais suave */
+    transition: color 0.1s, transform 0.3s ease-in-out, border-bottom 0.8s ease-in-out;
+    border-bottom: 3px solid transparent;
+    border-radius: 3px;
+}
+
+.link:hover {
+    color: #0057F9; /* Cor do texto */
+    transform: scale(1.1); /* Escala do texto */
+    border-bottom: 3px solid #FFFFFF; /* Adicionando a borda inferior */
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 24px;
+    color: #0f4577;
+}
+
+.icon-button:hover {
+    color: #3b3b3bd2;
+}
+
+.absolute {
+    top: -100px; /* Inicia fora da tela para esconder o header quando absoluto */
+    opacity: 0;
+    transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Transições para top e opacity */
+}
+
+.absolute.active {
+    /* Exibe o header quando estiver na posição absoluta */
+    top: 0;
+    opacity: 1;
+    transition: top 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Transições para top e opacity */
+
+}

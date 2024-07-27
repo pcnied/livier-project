@@ -5,7 +5,7 @@ import LogoPreview from '../../../public/assets/logo-teste.jpeg'
 
 const linksContact = [
 	{
-		title: '(83) 9.9142-9201',
+		title: '(31) 9.8436-0621',
 	},
 	{
 		title: 'contato@liviermkt.com.br',

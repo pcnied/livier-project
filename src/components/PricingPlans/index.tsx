@@ -1,96 +1,207 @@
+import CheckIcon from '@mui/icons-material/Check';
 import {
 	Card,
 	CardContent,
 	Typography,
 	Grid,
 	Box,
-	Button,
 	useMediaQuery,
 	useTheme,
+	Divider,
 } from '@mui/material';
-import React from 'react';
-
+import React, { useState } from 'react';
+import CustomButton from '../CustomButton';
+import CartDrawer from '../DrawerCart';
 import contrateLivier from '../../../public/assets/hire-banner.jpg';
 
 interface PlanProps {
+	id: number;
 	name: string;
 	description: string[];
 	price: string;
+	onAddToCart: (card: JSX.Element) => void;
 }
 
-const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
-	document.title = 'Contrate | Livier';
+const PlanCard: React.FC<PlanProps> = ({
+	id,
+	name,
+	description,
+	price,
+	onAddToCart,
+}) => {
 	return (
 		<Card
 			sx={{
-				width: '330px',
-				height: '380px',
+				width: '350px',
+				height: '560px',
 				margin: 'auto',
 				marginBottom: '20px',
-				backgroundColor: '#e7f5ff',
-				borderRadius: '12px',
 				boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 				transition: 'transform 0.3s',
-				'&:hover': {
-					transform: 'scale(1.05)',
-				},
 				display: 'flex',
 				flexDirection: 'column',
 				justifyContent: 'space-between',
+				'&:hover': {
+					boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+					transform: 'scale(1.02)',
+				},
 			}}
 		>
-			<CardContent>
-				<Typography gutterBottom variant="h5" component="div">
+			<CardContent
+				sx={{
+					padding: '20px',
+					backgroundColor: '#0f4577',
+				}}
+			>
+				<Typography
+					fontSize={'20px'}
+					component="div"
+					sx={{
+						textAlign: 'center',
+						color: '#ffffff',
+					}}
+				>
 					{name}
 				</Typography>
-				<Typography variant="body1" color={'#0f4577'}>
-					<strong>O que está incluso:</strong>
-				</Typography>
-				{description.map((item, index) => (
-					<Typography fontSize={'14px'} color={'#0f4577'} key={index}>
-						- {item}
-					</Typography>
-				))}
 			</CardContent>
-			<Box
+			<CardContent
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',
-					justifyContent: 'flex-end',
+					justifyContent: 'space-between',
+					flexGrow: 1,
+					padding: '20px',
 				}}
 			>
+				<Box sx={{ flexGrow: 1 }}>
+					{description.map((item, index) => (
+						<React.Fragment key={index}>
+							<Box
+								sx={{
+									display: 'flex',
+									alignItems: 'center',
+									marginY: '10px',
+								}}
+							>
+								<CheckIcon
+									sx={{
+										color: '#000000',
+										marginRight: '8px',
+									}}
+								/>
+								<Typography fontSize={'12px'} color={'#000000'}>
+									{item}
+								</Typography>
+							</Box>
+							{index < description.length - 1 && <Divider />}
+						</React.Fragment>
+					))}
+				</Box>
+				<Typography
+					sx={{
+						fontSize: '14px',
+						mt: '2px',
+					}}
+				>
+					A partir de:
+				</Typography>
 				<Typography
 					variant="h6"
 					color={'black'}
 					sx={{
-						textAlign: 'right',
-						marginRight: '16px',
-						marginBottom: '8px',
+						marginBottom: '16px',
 					}}
 				>
-					Preço: {price}
+					{price}
 				</Typography>
-				<Button
-					variant="contained"
-					color="primary"
-					sx={{
-						backgroundColor: '#001e32',
-						width: '100%',
-						borderBottomLeftRadius: '12px',
-						borderBottomRightRadius: '12px',
-						'&:hover': {
-							backgroundColor: '#0f4577',
-						},
-						padding: '12px',
-						boxSizing: 'border-box',
-					}}
-					onClick={() =>
-						window.open('https://wa.me/5583991429201', '_blank')
-					}
-				>
-					Adquirir
-				</Button>
-			</Box>
+			</CardContent>
+			<CustomButton
+				name="Adicionar ao Carrinho"
+				onClick={() =>
+					onAddToCart(
+						<Card
+							key={id}
+							sx={{
+								width: '100%',
+								marginTop: '20px',
+								boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+							}}
+						>
+							<CardContent
+								sx={{
+									padding: '10px',
+									backgroundColor: '#f5f5f5',
+								}}
+							>
+								<Typography
+									fontSize={'16px'}
+									component="div"
+									sx={{
+										textAlign: 'center',
+										color: '#333',
+									}}
+								>
+									{name}
+								</Typography>
+							</CardContent>
+							<CardContent
+								sx={{
+									display: 'flex',
+									flexDirection: 'column',
+									padding: '20px',
+								}}
+							>
+								<Box sx={{ flexGrow: 1 }}>
+									{description.map((item, index) => (
+										<React.Fragment key={index}>
+											<Box
+												sx={{
+													display: 'flex',
+													alignItems: 'center',
+													marginY: '10px',
+												}}
+											>
+												<CheckIcon
+													sx={{
+														color: '#000000',
+														marginRight: '8px',
+													}}
+												/>
+												<Typography
+													fontSize={'12px'}
+													color={'#000000'}
+												>
+													{item}
+												</Typography>
+											</Box>
+											{index < description.length - 1 && (
+												<Divider />
+											)}
+										</React.Fragment>
+									))}
+								</Box>
+								<Typography
+									sx={{
+										fontSize: '14px',
+										mt: '2px',
+									}}
+								>
+									A partir de:
+								</Typography>
+								<Typography
+									variant="h6"
+									color={'black'}
+									sx={{
+										marginBottom: '16px',
+									}}
+								>
+									{price}
+								</Typography>
+							</CardContent>
+						</Card>,
+					)
+				}
+			/>
 		</Card>
 	);
 };
@@ -98,6 +209,26 @@ const PlanCard: React.FC<PlanProps> = ({ name, description, price }) => {
 const PricingPlans: React.FC = () => {
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+	const [anchorCart, setAnchorCart] = useState({ right: false });
+	const [cartItems, setCartItems] = useState<JSX.Element[]>([]);
+
+	const openCart = () => {
+		setAnchorCart({ right: true });
+	};
+
+	const closeCart = () => {
+		setAnchorCart({ right: false });
+	};
+
+	const handleAddToCart = (card: JSX.Element) => {
+		setCartItems([...cartItems, card]);
+		openCart();
+	};
+
+	React.useEffect(() => {
+		document.title = 'Contrate | Livier';
+	}, []);
 
 	return (
 		<React.Fragment>
@@ -158,24 +289,24 @@ const PricingPlans: React.FC = () => {
 					marginTop={1}
 					marginBottom={4}
 				>
-					<Grid item>
-						<PlanCard
-							name="Standard SM"
-							description={[
+					{[
+						{
+							id: 1,
+							name: 'Standard SM',
+							description: [
 								'Gerenciamento completo',
 								'Criação de linha editorial',
 								'Estratégia de conteúdo',
 								'Criação de postagens 2x/semana (card único ou carrossel)',
 								'Suporte',
 								'2 reels/mês + Stories',
-							]}
-							price="R$ 900,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Premium SM"
-							description={[
+							],
+							price: 'R$ 900,00',
+						},
+						{
+							id: 2,
+							name: 'Premium SM',
+							description: [
 								'Gerenciamento completo',
 								'Criação de linha editorial',
 								'Estratégia de conteúdo',
@@ -183,143 +314,94 @@ const PricingPlans: React.FC = () => {
 								'Criação de postagens 3x/semana (card único ou carrossel)',
 								'Suporte',
 								'5 reels/mês + Stories',
-							]}
-							price="R$ 2.000,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Customize SM"
-							description={[
+							],
+							price: 'R$ 2.000,00',
+						},
+						{
+							id: 3,
+							name: 'Customize SM',
+							description: [
 								'Pacotes personalizados, elaborados conforme as necessidades específicas do cliente, bem como seus objetivos e estratégias no marketing',
 								'Definir se inclui: design gráfico e vídeos',
-							]}
-							price="R$ --"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Branding e Identidade Visual"
-							description={[
+							],
+							price: 'R$ --',
+						},
+						{
+							id: 4,
+							name: 'Branding e Identidade Visual',
+							description: [
 								'Criação da Logomarca',
 								'Paleta de Cores',
 								'Elementos da marca e submarca',
 								'Direito a 5 alterações',
-							]}
-							price="R$ 700,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Atendimento Humano"
-							description={[
-								'HUMANO:',
+							],
+							price: 'R$ 700,00',
+						},
+						{
+							id: 5,
+							name: 'Atendimento ao cliente',
+							description: [
 								'Abordagens personalizadas conforme o seu negócio',
 								'Resolução de problemas pré-venda, pós-venda de costumer success',
-								'AUTOMATIZADO:',
 								'Solução de problemas voltada para o seu negócio',
-								'Funcionamento 24hrs',
-							]}
-							price="R$ 1.000,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Gestão de Tráfego"
-							description={[
+								'Funcionamento 24hrs (caso seja automatizado)',
+							],
+							price: 'R$ 1.000,00',
+						},
+						{
+							id: 6,
+							name: 'Gestão de Tráfego',
+							description: [
 								'Criação de campanhas',
 								'Gerenciamento de anúncios',
 								'Relatórios semanais',
 								'Ajustes de campanha',
 								'Suporte',
-							]}
-							price="R$ 750,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Web Design"
-							description={[
+							],
+							price: 'R$ 750,00',
+						},
+						{
+							id: 7,
+							name: 'Web Design',
+							description: [
 								'Landing Page',
 								'Site Institucional',
 								'Banco de Dados',
 								'Preços variam de acordo com a quantidade de páginas solicitadas',
 								'Suporte',
-							]}
-							price=" A partir de R$ 500,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Copywriting"
-							description={[
+							],
+							price: 'A partir de R$ 500,00',
+						},
+						{
+							id: 8,
+							name: 'Copywriting',
+							description: [
 								'Redação para sites e plataformas de qualquer estilo de comunicação',
 								'Até 3 posts por semana',
 								'Redação para Stories e Feed',
 								'Roteirização para seus vídeos',
 								'Redação para legendas',
-								'Suporte',
-							]}
-							price="R$ 600,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Design"
-							description={[
-								'Artes para redes sociais ou outras plataformas',
-								'Redação profissional',
-								'Até 3 posts por semana',
-								'Artes para Stories e Feed',
-								'Artes avulsas (quantidade limitada)',
-								'Suporte',
-							]}
-							price="R$ 600,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Digital Standard"
-							description={[
-								'Landing Page',
-								'Standard SM',
-								'Branding | Rebranding',
-								'Planejamento de conteúdo estratégico',
-								'Suporte',
-							]}
-							price="R$ 2.500,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Digital VIP"
-							description={[
-								'Site institucional (até 3 páginas)',
-								'Premium SM',
-								'Branding | Rebranding',
-								'Automação para atendimento',
-								'Planejamento de conteúdo estratégico',
-								'Gestão de Tráfego',
-							]}
-							price="R$ 3.500,00"
-						/>
-					</Grid>
-					<Grid item>
-						<PlanCard
-							name="Digital Livier"
-							description={[
-								'Site institucional (até 5 páginas)',
-								'Premium SM',
-								'Branding | Rebranding',
-								'Atendimento Humano + Automação',
-								'Gestão de Tráfego',
-								'Suporte',
-							]}
-							price="R$ 5.500,00"
-						/>
-					</Grid>
+							],
+							price: 'R$ 1.000,00',
+						},
+					].map((plan) => (
+						<Grid item key={plan.id}>
+							<PlanCard
+								id={plan.id}
+								name={plan.name}
+								description={plan.description}
+								price={plan.price}
+								onAddToCart={handleAddToCart}
+							/>
+						</Grid>
+					))}
 				</Grid>
 			</Box>
+			<CartDrawer
+				open={anchorCart.right}
+				onClose={closeCart}
+				items={cartItems}
+			/>
 		</React.Fragment>
 	);
 };
