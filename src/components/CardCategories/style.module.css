@@ -1,124 +1,219 @@
+/* style.module.css */
+
 .cardContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 50px 30px;
-    border-radius: 8px;
-    position: relative;
-    overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding: 20px 30px;
+	border-radius: 8px;
+	position: relative;
+	overflow: hidden;
 }
 
 .card {
-    opacity: 0;
-    margin: 20px;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    width: 250px;
-    height: 350px;
+	opacity: 0;
+	transform: translateY(40px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+	width: 250px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.1s; /* Delay para suavizar a entrada dos cards */
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.2s;
 }
 
 .cardBox {
-    border-radius: 16px;
-    overflow: hidden;
-    height: 300px;
-    max-width: 300px;
-    background-color: #0f4577;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    transition: transform 0.4s ease-in-out, box-shadow 0.3s ease; /* Transições para transformação e box-shadow */
-    cursor: pointer;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; /* Adicionando position relative */
+	overflow: hidden;
+	height: 300px;
+	width: 100%;
+	max-width: 300px;
+	background-color: #0f4577;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	transition: transform 0.5s ease-in-out, box-shadow 0.4s ease-in-out;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
 }
 
 .cardBox:hover {
-    transform: scale(1.2);
-    box-shadow: 0 12px 60px rgba(0, 0, 0, 1); /* Aumentando o box-shadow no hover */
-    z-index: 1; /* Ajustando o z-index para garantir que fique sobre os outros cards */
+	transform: scale(1.05); /* Aumenta um pouco mais */
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Sombra mais suave e maior */
+	z-index: 1;
 }
 
 .cardBox:hover .cardContent {
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: background-color 0.3s ease; /* Transição suave para a mudança de cor de fundo */
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: background-color 0.3s ease;
 }
 
 .cardBox:hover .cardIcon {
-    width: 90px;
-    height: 90px;
-    transition: width 0.3s ease, height 0.3s ease, top 0.3s ease;
+	width: 70px;
+	height: 70px;
+	opacity: 1;
+	transform: scale(1);
+	transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease,
+		transform 0.3s ease;
 }
 
 .cardBox:hover .cardTitle {
-    font-size: 24px;
-    bottom: 70px;
-    transition: font-size 0.3s ease, bottom 0.5s ease; /* Transições suaves para as mudanças no título */
-}
-
-.cardBox:hover .cardIcon {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+	font-size: 22px;
+	bottom: 60px;
+	opacity: 1;
+	transform: translateX(0);
+	transition: font-size 0.3s ease, bottom 0.4s ease, opacity 0.3s ease,
+		transform 0.4s ease;
 }
 
 .cardBox .cardIcon {
-    opacity: 0;
-    transform: scale(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.cardBox:hover .cardTitle {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.3s ease, transform 0.6s ease; /* Transições suaves para as mudanças no título */
+	width: 60px;
+	height: 60px;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 2px #000;
+	color: #e6ebfe;
+	opacity: 0;
+	transform: scale(0);
+	transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .cardBox .cardTitle {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: opacity 0.3s ease, transform 0.6s ease; /* Transições suaves para as mudanças no título */
+	font-size: 18px;
+	color: #e6ebfe;
+	padding: 0 16px;
+	white-space: nowrap;
+	opacity: 0;
+	transform: translateX(100%);
+	transition: opacity 0.3s ease, transform 0.4s ease;
 }
 
 .cardBox:hover ~ .cardBox {
-    opacity: 0.5; /* Reduz a opacidade dos outros cards */
-    transition: opacity 0.3s ease; /* Adiciona uma transição suave */
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
 }
 
 .cardContent {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-.cardIcon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 8px;
-    text-shadow: 2px 2px 2px #000000;
-    color: #E6EBFE;
-    opacity: 0;
-    transform: scale(0);
+/* Responsividade */
+
+/* Para telas grandes, como desktops */
+@media (min-width: 1200px) {
+	.cardContainer {
+		gap: 30px;
+	}
+	.card {
+		width: 230px;
+		height: 300px;
+	}
+    .cardBox .cardTitle {
+		font-size: 20px; /* Reduz tamanho da fonte para dispositivos móveis */
+	}
+
+	.cardBox:hover {
+		transform: scale(1.02); /* Ajuste sutil no aumento ao passar o mouse */
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+	}
+
+	.cardBox:hover .cardTitle {
+		font-size: 20px; /* Ajuste no tamanho do título ao passar o mouse */
+	}
 }
 
-.cardTitle {
-    font-size: 20px;
-    color: #E6EBFE;
-    padding: 0 16px;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(100%);
+/* Para tablets e dispositivos com largura média */
+@media (max-width: 1200px) and (min-width: 992px) {
+	.card {
+		width: 220px;
+		height: 300px;
+	}
+	.cardBox {
+		max-width: 270px;
+	}
+}
+
+/* Para telas menores, como tablets em modo retrato */
+@media (max-width: 992px) and (min-width: 768px) {
+	.cardContainer {
+		padding: 20px 15px;
+		gap: 20px;
+	}
+	.card {
+		width: 200px;
+		height: 280px;
+	}
+	.cardBox {
+		max-width: 250px;
+	}
+	.cardBox .cardTitle {
+		font-size: 16px;
+	}
+}
+
+/* Para telas pequenas, como dispositivos móveis */
+@media (max-width: 768px) {
+	.cardContainer {
+		padding: 20px 10px;
+		gap: 15px;
+	}
+	.card {
+		width: 180px;
+		height: 250px;
+	}
+	.cardBox {
+		max-width: 230px;
+	}
+	.cardBox .cardTitle {
+		font-size: 14px; /* Reduz tamanho da fonte para dispositivos móveis */
+	}
+
+	.cardBox:hover {
+		transform: scale(1.02); /* Ajuste sutil no aumento ao passar o mouse */
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+	}
+
+	.cardBox:hover .cardTitle {
+		font-size: 16px; /* Ajuste no tamanho do título ao passar o mouse */
+	}
+}
+
+/* Para telas muito pequenas, como smartphones em modo retrato */
+@media (max-width: 576px) {
+	.cardContainer {
+		padding: 10px 5px;
+		gap: 10px;
+	}
+	.card {
+		width: 160px;
+		height: 220px;
+	}
+	.cardBox {
+		max-width: 200px;
+	}
+	.cardBox .cardTitle {
+		font-size: 12px; /* Reduz ainda mais o tamanho da fonte para smartphones */
+	}
+
+	.cardBox:hover {
+		transform: scale(1.01); /* Ajuste sutil no aumento ao passar o mouse */
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
+	}
+
+	.cardBox:hover .cardTitle {
+		font-size: 14px; /* Ajuste no tamanho do título ao passar o mouse */
+	}
 }

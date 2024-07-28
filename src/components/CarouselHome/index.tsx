@@ -37,41 +37,45 @@ const CarouselHome: React.FC = () => {
 
 	const renderSlides = () =>
 		slides.map((slide, index) => (
-		  <SwiperSlide key={index}>
-			<video
-			  width="100%"
-			  autoPlay
-			  loop
-			  muted
-			  playsInline
-			  style={{ objectFit: 'cover', height: isSmallScreen ? '400px' : '500px' }}
-			>
-			  <source src={slide.video} type="video/mp4" />
-			  Your browser does not support the video tag.
-			</video>
-			<Typography
-			  variant="overline"
-			  fontWeight={400}
-			  sx={{
-				textAlign: 'center',
-				position: 'absolute',
-				fontSize: isSmallScreen ? '16px' : '40px',
-				textTransform: 'uppercase',
-				bottom: '8px',
-				left: '50%',
-				transform: 'translate(-50%, -50%)',
-				color: '#eeeeee',
-				fontWeight: '500',
-				fontStyle: 'normal',
-				textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
-				lineHeight: 2.0,
-				width: 'calc(100% - 32px)',
-				zIndex: 10, // Garante que o texto fique acima do vídeo
-			  }}
-			>
-			  {slide.text}
-			</Typography>
-		  </SwiperSlide>
+			<SwiperSlide key={index}>
+				<video
+					width="100%"
+					autoPlay
+					loop
+					muted
+					playsInline
+					style={{
+						objectFit: 'cover',
+						height: isSmallScreen ? '400px' : '500px',
+					}}
+				>
+					<source src={slide.video} type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+				<Typography
+					variant="overline"
+					fontWeight={400}
+					sx={{
+						fontFamily: 'Georgia',
+						textAlign: 'center',
+						position: 'absolute',
+						fontSize: isSmallScreen ? '16px' : '28px',
+						textTransform: 'uppercase',
+						bottom: '8px',
+						left: '50%',
+						transform: 'translate(-50%, -50%)',
+						color: '#eeeeee',
+						fontWeight: '500',
+						fontStyle: 'normal',
+						textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
+						lineHeight: 2.0,
+						width: 'calc(100% - 32px)',
+						zIndex: 10, // Garante que o texto fique acima do vídeo
+					}}
+				>
+					{slide.text}
+				</Typography>
+			</SwiperSlide>
 		));
 
 	return (

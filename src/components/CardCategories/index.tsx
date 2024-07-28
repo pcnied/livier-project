@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
-import styles from './style.module.css';
+import React from 'react';
+import { Box, Typography, Card, CardMedia, CardContent } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
+import styles from './style.module.css'; // Importa os estilos CSS Modules
 import calendarioIcon from '../../../public/assets/calendario.png';
 import consultorIcon from '../../../public/assets/consultor.png';
 import perfilIcon from '../../../public/assets/perfil.png';
@@ -14,76 +15,75 @@ interface CardData {
 	title: string;
 	href: string;
 	iconSrc: string;
-	backgroundImageSrc: string; // Adicionando propriedade para a imagem de fundo
+	backgroundImageSrc: string;
 }
 
 const cardData: CardData[] = [
 	{
 		title: 'Análise de Perfil',
 		href: '/hire',
-		iconSrc: perfilIcon, // Alterando para utilizar a nova imagem importada
-		backgroundImageSrc: cardPerfil, // Definindo a imagem de fundo
+		iconSrc: perfilIcon,
+		backgroundImageSrc: cardPerfil,
 	},
 	{
 		title: 'Calendário de Conteúdo',
 		href: '/hire',
-		iconSrc: calendarioIcon, // Alterando para utilizar a nova imagem importada
-		backgroundImageSrc: cardCalendario, // Definindo a imagem de fundo
+		iconSrc: calendarioIcon,
+		backgroundImageSrc: cardCalendario,
 	},
 	{
 		title: 'Consultoria',
 		href: '/hire',
-		iconSrc: consultorIcon, // Alterando para utilizar a nova imagem importada
-		backgroundImageSrc: cardConsultoria, // Definindo a imagem de fundo
+		iconSrc: consultorIcon,
+		backgroundImageSrc: cardConsultoria,
 	},
 	{
 		title: 'Site Institucional',
 		href: '/hire',
-		iconSrc: wwwIcon, // Alterando para utilizar a nova imagem importada
-		backgroundImageSrc: cardSite, // Definindo a imagem de fundo
+		iconSrc: wwwIcon,
+		backgroundImageSrc: cardSite,
 	},
 ];
 
 const CardCategories: React.FC = () => {
-	const [visibleCards, setVisibleCards] = useState<number[]>([]);
-
-	const onChange = (isVisible: boolean, index: number) => {
-		if (isVisible && !visibleCards.includes(index)) {
-			setVisibleCards((prevVisibleCards) => [...prevVisibleCards, index]);
-		}
-	};
-
 	return (
-		<div className={styles.cardContainer}>
-			{cardData.map((card, index) => (
-				<VisibilitySensor
-					key={index}
-					onChange={(isVisible) => onChange(isVisible, index)}
-				>
-					<div
+		<Box className={styles.cardContainer}>
+			{cardData.map((card, index) => {
+				const { ref, inView } = useInView({
+					triggerOnce: true,
+					threshold: 0.1,
+				});
+
+				return (
+					<Card
+						key={index}
+						ref={ref}
 						className={`${styles.card} ${
-							visibleCards.includes(index) ? styles.visible : ''
+							inView ? styles.visible : ''
 						}`}
 					>
-						<div
+						<CardMedia
 							className={styles.cardBox}
-							style={{
-								backgroundImage: `url(${card.backgroundImageSrc})`,
-							}}
+							image={card.backgroundImageSrc}
+							title={card.title}
 						>
-							<div className={styles.cardContent}>
+							<CardContent className={styles.cardContent}>
 								<img
 									src={card.iconSrc}
 									alt={card.title}
 									className={styles.cardIcon}
 								/>
-								<p className={styles.cardTitle}>{card.title}</p>
-							</div>
-						</div>
-					</div>
-				</VisibilitySensor>
-			))}
-		</div>
+								<Typography
+									className={styles.cardTitle}
+								>
+									{card.title}
+								</Typography>
+							</CardContent>
+						</CardMedia>
+					</Card>
+				);
+			})}
+		</Box>
 	);
 };
 

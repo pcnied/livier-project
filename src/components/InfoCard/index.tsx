@@ -13,14 +13,16 @@ const InfoCard: React.FC<InfoCardProps> = ({
 	imageUrl,
 }) => {
 	return (
-		<Box sx={{ textAlign: 'left' }}>
-			
-					<Box sx={{ display: 'flex', justifyContent: 'left', marginBottom: '10px' }}>
-						<img
-							src={imageUrl}
-							style={{ width: '70px' }}
-						/>
-					</Box>
+		<Box sx={{ textAlign: 'center' }}>
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'center',
+					marginBottom: '10px',
+				}}
+			>
+				<img src={imageUrl} style={{ width: '70px' }} />
+			</Box>
 			<Typography
 				color={'black'}
 				variant="overline"
@@ -32,7 +34,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
 			>
 				{title}
 			</Typography>
-			<Typography color={'black'} fontSize={'18px'} align="left">
+			<Typography color={'black'} fontSize={'18px'} align="center">
 				{description}
 			</Typography>
 		</Box>
