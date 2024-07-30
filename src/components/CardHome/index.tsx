@@ -1,5 +1,5 @@
-import React from 'react';
 import { Card, CardContent, Typography, styled } from '@mui/material';
+import React from 'react';
 
 interface CardHomeProps {
 	title: string;
@@ -9,7 +9,7 @@ interface CardHomeProps {
 
 const StyledCard = styled(Card)(({ theme }) => ({
 	width: '100%',
-	maxWidth: 300,
+	maxWidth: 320,
 	height: '100%',
 	display: 'flex',
 	flexDirection: 'column',
@@ -17,14 +17,22 @@ const StyledCard = styled(Card)(({ theme }) => ({
 	border: '2px solid #ddd',
 	borderRadius: 12,
 	boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-	transition: 'transform 0.3s, box-shadow 0.3s, border 0.3s',
+	transition:
+		'transform 0.3s, box-shadow 0.3s, border 0.3s, box-shadow 0.3s, filter 0.3s',
 	overflow: 'hidden',
 	'&:hover': {
-		transform: 'translateY(-5px)',
-		boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+		transform: 'translateY(-10px)',
+		boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2)',
 		border: '2px solid #000',
 	},
 }));
+
+const StyledImage = styled('img')({
+	width: '100%',
+	height: 200,
+	objectFit: 'cover',
+	borderBottom: '2px solid #ddd',
+});
 
 const StyledTitle = styled(Typography)(({ theme }) => ({
 	fontFamily: '"Poppins", sans-serif',
@@ -35,6 +43,7 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
 	marginBottom: 8,
 	position: 'relative',
 	cursor: 'pointer',
+	padding: '16px',
 	'&::after': {
 		content: '""',
 		position: 'absolute',
@@ -43,11 +52,11 @@ const StyledTitle = styled(Typography)(({ theme }) => ({
 		width: '100%',
 		height: 2,
 		backgroundColor: '#000',
-		transform: 'scaleX(0)', // Initially hidden
+		transform: 'scaleX(0)',
 		transition: 'transform 0.3s',
 	},
 	'&:hover::after': {
-		transform: 'scaleX(1)', // Fully visible on hover
+		transform: 'scaleX(1)',
 	},
 }));
 
@@ -57,6 +66,7 @@ const StyledContent = styled(Typography)(({ theme }) => ({
 	lineHeight: 1.6,
 	color: '#666',
 	marginBottom: 16,
+	padding: '0 16px 16px',
 }));
 
 const CardHome: React.FC<CardHomeProps> = ({
@@ -66,16 +76,7 @@ const CardHome: React.FC<CardHomeProps> = ({
 }) => {
 	return (
 		<StyledCard>
-			<img
-				src={imageUrl}
-				alt={title}
-				style={{
-					width: '100%',
-					height: '200px',
-					objectFit: 'cover',
-					borderBottom: '2px solid #ddd',
-				}}
-			/>
+			<StyledImage src={imageUrl} alt={title} />
 			<CardContent>
 				<StyledTitle variant="h6">{title}</StyledTitle>
 				<StyledContent>{description}</StyledContent>

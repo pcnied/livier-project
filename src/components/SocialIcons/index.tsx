@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
 	FaWhatsapp,
 	FaInstagram,
@@ -14,24 +14,29 @@ const SocialIcons = () => {
 	const [animationDirection, setAnimationDirection] = useState(''); // Direção da animação ('slideOutLeft' ou 'slideInRight')
 
 	useEffect(() => {
-		let interval;
-		if (!stopAutoRotate) {
-			interval = setInterval(() => {
+		// Declarar `interval` como número
+		const interval = setInterval(() => {
+			if (!stopAutoRotate) {
 				setAnimationDirection('slideOutLeft');
 
 				setTimeout(() => {
 					setOrder((prevOrder) => {
 						const newOrder = [...prevOrder];
-						const firstItem = newOrder.shift();
-						newOrder.push(firstItem);
+						const firstItem = newOrder.shift(); // Remove o primeiro item do array
+
+						// Verifica se `firstItem` não é undefined antes de usá-lo
+						if (firstItem !== undefined) {
+							newOrder.push(firstItem);
+						}
+
 						setAnimationDirection('slideInRight');
 						return newOrder;
 					});
 				}, 300); // Tempo para iniciar a animação de entrada após a de saída
-			}, 3000); // Troca a cada 3 segundos
-		}
+			}
+		}, 3000); // Troca a cada 3 segundos
 
-		return () => clearInterval(interval);
+		return () => clearInterval(interval); // Limpa o intervalo ao desmontar o componente
 	}, [stopAutoRotate]);
 
 	const handleMouseEnter = () => {
@@ -74,7 +79,7 @@ const SocialIcons = () => {
 };
 
 // Função auxiliar para renderizar o ícone com base no índice
-const renderIcon = (index) => {
+const renderIcon = (index: number) => {
 	switch (index) {
 		case 0:
 			return (
@@ -122,7 +127,7 @@ const renderIcon = (index) => {
 };
 
 // Função auxiliar para retornar a classe de estilo com base no índice
-const getStyleClass = (index) => {
+const getStyleClass = (index: number) => {
 	switch (index) {
 		case 0:
 			return Style.whatsapp;

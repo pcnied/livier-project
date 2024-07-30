@@ -20,7 +20,13 @@ const HomePage = () => {
 						style={{ textAlign: 'center' }}
 					>
 						<Typography
-							fontSize="24px"
+							sx={{
+								fontSize: {
+									xs: '18px',
+									sm: '24px',
+									md: '30px',
+								},
+							}}
 							variant="overline"
 							fontWeight={300}
 							color={'black'}
@@ -48,7 +54,13 @@ const HomePage = () => {
 						style={{ textAlign: 'center' }}
 					>
 						<Typography
-							fontSize="24px"
+							sx={{
+								fontSize: {
+									xs: '18px',
+									sm: '24px',
+									md: '30px',
+								},
+							}}
 							variant="overline"
 							fontWeight={300}
 							color={'black'}

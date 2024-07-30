@@ -11,7 +11,7 @@ const theme = createTheme({
 		},
 	},
 	typography: {
-		fontFamily: ['Lato', '-apple-system'].join(','),
+		fontFamily: ['"Poppins"', '-apple-system'].join(','),
 	},
 });
 

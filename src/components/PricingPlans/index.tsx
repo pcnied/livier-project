@@ -10,9 +10,10 @@ import {
 	Divider,
 } from '@mui/material';
 import React, { useState } from 'react';
+
+import contrateLivier from '../../../public/assets/hire-banner.jpg';
 import CustomButton from '../CustomButton';
 import CartDrawer from '../DrawerCart';
-import contrateLivier from '../../../public/assets/hire-banner.jpg';
 
 interface PlanProps {
 	id: number;
@@ -248,16 +249,21 @@ const PricingPlans: React.FC = () => {
 				>
 					<Typography
 						sx={{
+							fontFamily: 'Georgia',
 							textAlign: 'center',
 							position: 'absolute',
-							fontSize: isSmallScreen ? '20px' : '24px',
+							fontSize: isSmallScreen ? '16px' : '28px',
 							textTransform: 'uppercase',
-							bottom: '10px',
+							bottom: '8px',
 							left: '50%',
 							transform: 'translate(-50%, -50%)',
 							color: '#eeeeee',
-							fontWeight: '200',
-							fontStyle: 'italic',
+							fontWeight: '500',
+							fontStyle: 'normal',
+							textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
+							lineHeight: 2.0,
+							width: 'calc(100% - 32px)',
+							zIndex: 10,
 						}}
 					>
 						Confira os principais planos da Livier para você e sua
@@ -270,12 +276,11 @@ const PricingPlans: React.FC = () => {
 							sx={{
 								fontSize: {
 									xs: '18px',
-									sm: '20px',
-									md: '24px',
+									sm: '24px',
+									md: '30px',
 								},
 							}}
 							variant="overline"
-							fontWeight={300}
 						>
 							Planos acessíveis e que se encaixam perfeitamente no
 							seu orçamento

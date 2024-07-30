@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface CarouselItem {
 	imageUrl: string;
@@ -16,33 +18,37 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ items }) => {
-	const settings = {
-		dots: true,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 2000,
-		pauseOnHover: true,
-	};
-
 	return (
 		<Box
 			sx={{
-				paddingBottom: 6,
-				'& .slick-dots li button:before': {
-					fontSize: '4px',
-					color: '#000',
+				paddingBottom: 4,
+				position: 'relative',
+				'& .swiper-pagination': {
+					bottom: '2px', // Ajuste a posição vertical da paginação
 				},
-				'& .slick-dots li.slick-active button:before': {
+				'& .swiper-pagination-bullet': {
+					backgroundColor: '#000',
+					width: '4px', // Ajuste o tamanho do ponto
+					height: '4px', // Ajuste o tamanho do ponto
+				},
+				'& .swiper-pagination-bullet-active': {
+					backgroundColor: '#000',
+				},
+				'& .swiper-button-next, & .swiper-button-prev': {
 					color: '#000',
 				},
 			}}
 		>
-			<Slider {...settings}>
+			<Swiper
+				modules={[Pagination, Navigation, Autoplay]}
+				pagination={{ clickable: true }}
+				autoplay={{ delay: 2000 }}
+				loop
+				spaceBetween={50}
+				slidesPerView={1}
+			>
 				{items.map((item, index) => (
-					<div key={index}>
+					<SwiperSlide key={index}>
 						<Box
 							sx={{
 								padding: 2,
@@ -56,15 +62,15 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 								src={item.imageUrl}
 								alt={`Image ${index}`}
 								sx={{
-									width: item.width || '50%', // Usa a largura fornecida ou 50% como padrão
-									height: item.height || 'auto', // Usa a altura fornecida ou auto como padrão
-									objectFit: 'cover', // Ajusta a imagem para cobrir totalmente a área definida
+									width: item.width || '50%',
+									height: item.height || 'auto',
+									objectFit: 'cover',
 									borderRadius: '10px',
 									boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
 									transition: 'transform 0.3s ease-in-out',
 									'@media (max-width: 600px)': {
-										width: '90%', // Largura para dispositivos móveis
-										height: 'auto', // Altura para dispositivos móveis
+										width: '90%',
+										height: 'auto',
 									},
 								}}
 							/>
@@ -82,9 +88,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
 								{item.caption}
 							</Typography>
 						</Box>
-					</div>
+					</SwiperSlide>
 				))}
-			</Slider>
+			</Swiper>
 		</Box>
 	);
 };

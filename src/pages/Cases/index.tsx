@@ -49,16 +49,21 @@ const CasesPage = () => {
 				>
 					<Typography
 						sx={{
+							fontFamily: 'Georgia',
 							textAlign: 'center',
 							position: 'absolute',
-							fontSize: isSmallScreen ? '20px' : '24px',
+							fontSize: isSmallScreen ? '16px' : '28px',
 							textTransform: 'uppercase',
-							bottom: '10px',
+							bottom: '8px',
 							left: '50%',
 							transform: 'translate(-50%, -50%)',
 							color: '#eeeeee',
-							fontWeight: '200',
-							fontStyle: 'italic',
+							fontWeight: '500',
+							fontStyle: 'normal',
+							textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
+							lineHeight: 2.0,
+							width: 'calc(100% - 32px)',
+							zIndex: 10,
 						}}
 					>
 						Alguns de nossos principais Projetos
@@ -71,12 +76,11 @@ const CasesPage = () => {
 						sx={{
 							fontSize: {
 								xs: '18px',
-								sm: '20px',
-								md: '24px',
+								sm: '24px',
+								md: '30px',
 							},
 						}}
 						variant="overline"
-						fontWeight={300}
 					>
 						Web Design (E-commerces)
 					</Typography>
@@ -89,47 +93,17 @@ const CasesPage = () => {
 						sx={{
 							fontSize: {
 								xs: '18px',
-								sm: '20px',
-								md: '24px',
+								sm: '24px',
+								md: '30px',
 							},
 						}}
 						variant="overline"
-						fontWeight={300}
 					>
 						Social Media
 					</Typography>
 				</Grid>
 			</Box>
 			<Carousel items={itemsSocialMedia} />
-			{/* <Grid>
-				<Presentation
-					imageUrl={oMeuDeus}
-					title="ÓMeuDeus"
-					siteUrl="www.omeudeus.com.br"
-				/>
-				<Presentation
-					imageUrl={petCoast}
-					title="PetCoast"
-					siteUrl="www.petcoast.com.br"
-				/>
-				<Presentation
-					imageUrl={basico}
-					title="Básico.com"
-					siteUrl="www.basico.com"
-				/>
-				<Box display={'flex'} justifyContent={'center'}>
-					<Typography
-						variant="overline"
-						fontSize="30px"
-						textAlign={'center'}
-						fontWeight={400}
-					>
-						Social Media
-					</Typography>
-				</Box>
-
-				<ImagesCases images={[socialOne, socialTwo, socialThree]} />
-			</Grid> */}
 		</Container>
 	);
 };

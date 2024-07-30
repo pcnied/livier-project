@@ -2,7 +2,7 @@ import { Box, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 import bannerAboutUs from '../../../public/assets/about-us-banner.jpg';
 import luiza from '../../../public/assets/luiza.jpeg';
-import pedro from '../../../public/assets/pedro.jpeg';
+import vitoria from '../../../public/assets/vitoria.jpeg';
 import Carousel from '../../components/Carousel';
 import Container from '../../components/Container';
 
@@ -12,7 +12,7 @@ const AboutUsPage = () => {
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
 	const items = [
-		{ imageUrl: pedro, caption: 'Pedro Sodré' },
+		{ imageUrl: vitoria, caption: 'Vitoria Marques' },
 		{ imageUrl: luiza, caption: 'Luiza Leblanc' },
 	];
 
@@ -34,16 +34,21 @@ const AboutUsPage = () => {
 				>
 					<Typography
 						sx={{
+							fontFamily: 'Georgia',
 							textAlign: 'center',
 							position: 'absolute',
-							fontSize: isSmallScreen ? '20px' : '24px',
+							fontSize: isSmallScreen ? '16px' : '28px',
 							textTransform: 'uppercase',
-							bottom: '10px',
+							bottom: '8px',
 							left: '50%',
 							transform: 'translate(-50%, -50%)',
 							color: '#eeeeee',
-							fontWeight: '200',
-							fontStyle: 'italic',
+							fontWeight: '500',
+							fontStyle: 'normal',
+							textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
+							lineHeight: 2.0,
+							width: 'calc(100% - 32px)',
+							zIndex: 10,
 						}}
 					>
 						Saiba quem somos e qual nosso objetivo
@@ -119,7 +124,6 @@ const AboutUsPage = () => {
 					<Carousel items={items} />
 				</Box>
 			</Box>
-			<Box marginTop={2}></Box>
 		</Container>
 	);
 };

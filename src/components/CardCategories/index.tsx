@@ -1,15 +1,16 @@
-import React from 'react';
 import { Box, Typography, Card, CardMedia, CardContent } from '@mui/material';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import styles from './style.module.css'; // Importa os estilos CSS Modules
+
 import calendarioIcon from '../../../public/assets/calendario.png';
-import consultorIcon from '../../../public/assets/consultor.png';
-import perfilIcon from '../../../public/assets/perfil.png';
-import wwwIcon from '../../../public/assets/www.png';
 import cardCalendario from '../../../public/assets/card_calendario.png';
 import cardConsultoria from '../../../public/assets/card_consultoria.png';
 import cardPerfil from '../../../public/assets/card_perfil.png';
 import cardSite from '../../../public/assets/card_site.png';
+import consultorIcon from '../../../public/assets/consultor.png';
+import perfilIcon from '../../../public/assets/perfil.png';
+import wwwIcon from '../../../public/assets/www.png';
+import styles from './style.module.css';
 
 interface CardData {
 	title: string;
@@ -47,7 +48,7 @@ const cardData: CardData[] = [
 
 const CardCategories: React.FC = () => {
 	return (
-		<Box className={styles.cardContainer}>
+		<Box sx={{marginBottom: 2}} className={styles.cardContainer}>
 			{cardData.map((card, index) => {
 				const { ref, inView } = useInView({
 					triggerOnce: true,
@@ -73,9 +74,7 @@ const CardCategories: React.FC = () => {
 									alt={card.title}
 									className={styles.cardIcon}
 								/>
-								<Typography
-									className={styles.cardTitle}
-								>
+								<Typography className={styles.cardTitle}>
 									{card.title}
 								</Typography>
 							</CardContent>

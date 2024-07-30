@@ -6,9 +6,9 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import homeThree from '../../../public/assets/development.mp4';
 import homeOne from '../../../public/assets/goals.mp4';
 import homeTwo from '../../../public/assets/marketing.mp4';
-import homeThree from '../../../public/assets/development.mp4';
 
 interface Slide {
 	video: string;
@@ -70,7 +70,7 @@ const CarouselHome: React.FC = () => {
 						textShadow: '2px 2px 5px rgba(0, 0, 0, 1)',
 						lineHeight: 2.0,
 						width: 'calc(100% - 32px)',
-						zIndex: 10, // Garante que o texto fique acima do vídeo
+						zIndex: 10,
 					}}
 				>
 					{slide.text}
@@ -83,7 +83,6 @@ const CarouselHome: React.FC = () => {
 			<Swiper
 				modules={[Pagination, Navigation, Autoplay]}
 				pagination={{ clickable: true }}
-				navigation
 				autoplay={{ delay: 3000 }}
 				loop
 				spaceBetween={50}

@@ -1,15 +1,11 @@
+import { WhatsApp, Mail } from '@mui/icons-material';
 import { Box, Grid, Link as LinkMaterial, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 
-import LogoPreview from '../../../public/assets/logo-teste.jpeg'
+import LogoLivier from '../../../public/assets/logo_livier_tech.png';
 
 const linksContact = [
-	{
-		title: '(31) 9.8436-0621',
-	},
-	{
-		title: 'contato@liviermkt.com.br',
-	},
+	{ title: '(31) 9.8436-0621', icon: <WhatsApp sx={{ mr: 1 }} /> },
+	{ title: 'contato@liviermkt.com.br', icon: <Mail sx={{ mr: 1 }} /> },
 ];
 
 const linksHelp = [
@@ -27,25 +23,6 @@ const linksHelp = [
 	},
 ];
 
-const linksSocialMedia = [
-	{
-		title: '../../../public/assets/instagram.png',
-		url: 'https://www.instagram.com/liviermkt'
-	},
-	{
-		title: '../../../public/assets/facebook.png',
-		url: 'https://www.facebook.com/profile.php?id=61554559621184',
-	},
-	{
-		title: '../../../public/assets/tiktok.png',
-		url: 'https://www.tiktok.com/@liviermkt',
-	},
-	{
-		title: '../../../public/assets/linkedin.png',
-		url: 'https://www.linkedin.com/in/livier-mkt-9b67452b9',
-	},
-];
-
 const Footer = () => {
 	return (
 		<Box component={'footer'} sx={{ width: '100%', bgcolor: '#03141e' }}>
@@ -53,7 +30,7 @@ const Footer = () => {
 				container
 				sx={{
 					margin: '0',
-					background: '#03141e',
+					background: '#000',
 					padding: '30px 15px',
 				}}
 				justifyContent={'center'}
@@ -68,13 +45,25 @@ const Footer = () => {
 					alignItems={{ xs: 'flex-start', sm: 'center' }}
 				>
 					<Box>
-						<img src={LogoPreview} height="80"/>
-						<Typography
-							fontSize={'20'}
-							color={'white'}
+						<img src={LogoLivier} height="150px" />
+						<Box
+							display={'flex'}
+							flexDirection={'column'}
+							alignItems={'flex-start'}
+							gap={1}
 						>
-							Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing elit,Lorem ipsum dolor sit amet.
-						</Typography>
+							{linksContact.map((link) => (
+								<Box
+									key={link.title}
+									display={'flex'}
+									alignItems={'center'}
+									sx={{ color: '#ffffff', fontSize: '14px' }}
+								>
+									{link.icon}
+									<Typography>{link.title}</Typography>
+								</Box>
+							))}
+						</Box>
 					</Box>
 				</Grid>
 				<Grid
@@ -113,7 +102,7 @@ const Footer = () => {
 										transition: 'color 0.3s',
 										'&:hover': {
 											color: 'blue',
-										}
+										},
 									}}
 								>
 									{link.title}
@@ -122,47 +111,6 @@ const Footer = () => {
 						</Box>
 					</Box>
 				</Grid>
-				<Grid
-					item
-					xs={12}
-					sm={3}
-					display={'flex'}
-					flexDirection={'column'}
-					alignItems={{ xs: 'flex-start', sm: 'center' }}
-				>
-					<Box>
-					<Typography
-						variant="overline"
-						fontSize={'20px'}
-						color={'white'}
-						textAlign={'initial'}
-						fontWeight={'500'}
-					>
-						ATENDIMENTO
-					</Typography>
-
-						<Box
-							display={'flex'}
-							flexDirection={'column'}
-							justifyContent={'center'}
-							gap={1}
-						>
-							{linksContact.map((link) => (
-								<Typography
-									key={link.title}
-									style={{
-										textDecoration: 'none',
-										color: 'white',
-										fontSize: '16px',
-									}}
-								>
-									{link.title}
-								</Typography>
-							))}
-						</Box>
-					</Box>
-					
-				</Grid>
 			</Grid>
 
 			<Box
@@ -170,8 +118,8 @@ const Footer = () => {
 					display: 'flex',
 					justifyContent: 'center',
 					alignItems: 'center',
-					padding: '15px',
-					backgroundColor: '#1C282F'
+					padding: '24px',
+					backgroundColor: '#03141e',
 				}}
 			>
 				<Typography
